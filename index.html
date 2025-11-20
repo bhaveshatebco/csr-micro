@@ -61,10 +61,11 @@
       /* text-align: left; */
       max-width: 1100px;
       display:flex;
+      justify-content: center;
       align-items:center;
       padding-left: 16px;
       text-align:right;
-      gap:10px;
+      /* gap:10px; */
     }
 
     .lang-select select {
@@ -203,7 +204,7 @@
   header div {
     flex-direction: column;
     text-align: center;
-    gap: 10px;
+    gap: 1px;
   }
 
   .lang-select {
@@ -228,13 +229,15 @@
   }
 
   .tab-btn {
-    width: 100%;
+    /* width: 100%; */
     font-size: 1.2rem;
     padding: 0.7rem 1.2rem;
+        width: fit-content;
+    margin: auto;
   }
 
   .info-text {
-    padding: 0 12px;
+    padding: 0 12px; 
     font-size: 15px;
   }
 
@@ -257,7 +260,9 @@
 
   .tab-btn {
     font-size: 1rem;
-    padding: 0.6rem 1rem;
+    padding: 0.6rem 3rem;
+        width: fit-content;
+    margin: auto;
   }
 
   .info-text {
@@ -370,7 +375,7 @@ function showSlides(n) {
 <!-- Upskill Form -->
 <div id="upskill" class="form-container">
   <h2>UpSkill  with Ebco</h2>
-  <p style="padding: 1rem 0;">Training to improve your skills — product knowledge and installation methods. After training, you will receive a government-authorised certificate.</p>
+  <p style="padding: 1rem 0;">Training to improve your skills, product knowledge and installation methods. After training, you will receive a government-authorised certificate.</p>
   <p>Please enter your details below: </p>
   <p></p>
   <form>
@@ -387,7 +392,7 @@ function showSlides(n) {
 <!-- Insurance Paragraph -->
 <div id="insurance" class="form-container" style="display:none;">
   <h2>Insurance Support</h2>
-  <p style="padding: 1rem 0;">Government-provided insurance to protect you and your family.</p>
+  <p style="padding: 1rem 0;">Government-authorized insurance to protect you and your family.</p>
   <p>This insurance scheme is provided directly by the government to support carpenters and their families. Details will be processed through verified NGO partners to ensure genuine beneficiaries receive timely help.</p>
   <p>Please stay connected with our field representatives for updates regarding eligibility and required documentation.</p>
 </div>
@@ -450,4 +455,3 @@ function showSection(section) {
 
 </body>
 </html>
-
