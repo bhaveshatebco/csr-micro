@@ -351,6 +351,48 @@ function showSlides(n) {
   }
   slides[slideIndex - 1].style.display = "block";
 }
+
+// SWIPE + DRAG for carousel
+const carousel = document.querySelector('.carousel-container');
+let startX = 0;
+let isDown = false;
+
+// --- Touch Events (Mobile) ---
+carousel.addEventListener('touchstart', (e) => {
+  startX = e.touches[0].clientX;
+});
+
+carousel.addEventListener('touchend', (e) => {
+  let endX = e.changedTouches[0].clientX;
+  handleSwipe(endX - startX);
+});
+
+// --- Mouse Drag Events (Desktop) ---
+carousel.addEventListener('mousedown', (e) => {
+  isDown = true;
+  startX = e.clientX;
+});
+
+carousel.addEventListener('mouseup', (e) => {
+  if (!isDown) return;
+  isDown = false;
+  let endX = e.clientX;
+  handleSwipe(endX - startX);
+});
+
+carousel.addEventListener('mouseleave', () => {
+  isDown = false;
+});
+
+// --- Swipe Handler ---
+function handleSwipe(diff) {
+  if (diff > 50) {
+    plusSlides(-1); // Swipe Right → Previous
+  } else if (diff < -50) {
+    plusSlides(1);  // Swipe Left → Next
+  }
+}
+
 </script>
 
 <div class="info-text">
