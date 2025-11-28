@@ -58,16 +58,13 @@
     }
 
     .lang-select {
-      /* margin: 15px auto; */
       margin: 0;
-      /* text-align: left; */
       max-width: 1100px;
       display: flex;
       justify-content: center;
       align-items: center;
       padding-left: 16px;
       text-align: right;
-      /* gap:10px; */
     }
 
     .lang-select select {
@@ -128,7 +125,6 @@
     .form-group label {
       display: block;
       margin-bottom: 5px;
-      /* font-weight: bold; */
     }
 
     .form-group input,
@@ -139,7 +135,6 @@
       border-radius: 5px;
       font-size: 14px;
       font-family: system-ui, 'Segoe UI', sans-serif;
-      /* margin: 0.5rem 0; */
     }
 
     .submit-btn {
@@ -332,17 +327,14 @@
   <header>
     <div class="header-bar">
 
-      <!-- Left: Logo -->
       <div class="header-left">
         <img src="https://dashboard.ebco.in/wp-content/uploads/2025/11/ebco-logo.png" alt="Ebco Logo" class="ebco-logo">
       </div>
 
-      <!-- Center: Title -->
       <div class="header-center">
         CSR Initiative
       </div>
 
-      <!-- Right: Language Selector -->
       <div class="header-right lang-select">
         <div id="google_translate_element" style="display:inline-block;"></div>
       </div>
@@ -350,19 +342,17 @@
     </div>
   </header>
 
+  <!------------------------------------------------------------------------------ Carousel ------------------------------------------------------------------------------>
 
-
-  <!-- Carousel -->
   <div class="carousel-container">
     <div class="carousel-slide fade">
-      <img src="https://dashboard.ebco.in/wp-content/uploads/2025/11/carpenter-image-01.webp" alt="Slide 1" />
+      <img src="https://dashboard.ebco.in/wp-content/uploads/2025/11/children-scholarship-image-01.webp" alt="Slide 1" />
     </div>
     <div class="carousel-slide fade">
       <img src="https://dashboard.ebco.in/wp-content/uploads/2025/11/insurance-image-01.webp" alt="Slide 2" />
     </div>
     <div class="carousel-slide fade">
-      <img src="https://dashboard.ebco.in/wp-content/uploads/2025/11/children-scholarship-image-01.webp"
-        alt="Slide 3" />
+      <img src="https://dashboard.ebco.in/wp-content/uploads/2025/11/carpenter-image-02.webp" alt="Slide 3" />
     </div>
 
     <!-- Controls -->
@@ -370,22 +360,9 @@
     <a class="next" onclick="plusSlides(1)">&#10095;</a>
   </div>
 
-
+  <!------------------------------------------------------------------------------ Paragraphs ------------------------------------------------------------------------------>
 
   <div class="info-text">
-    <!-- <p>
-      This initiative aims to support carpenters and their children by providing an easy, accessible platform to submit
-      essential documents and gathering information about the initiative. Our goal is to ensure that every deserving
-      child receives assistance without any hurdles.
-    </p>
-    <p>
-      By partnering with NGOs and working at the ground level, we ensure that genuine beneficiaries are identified and
-      supported. Your participation helps strengthen this mission and contributes to the upliftment of skilled workers
-      in our communities.
-    </p>
-
-    <p>You will receive the following benefits through this initiative:</p> -->
-
     <p>EBCO is committed to improving the social and economic well-being of the community particularly carpenters and
       their families across India through its CSR initiatives. Our programs focus on skill development, financial
       security, and educational support, ensuring a brighter and more stable future for the carpenter community.</p>
@@ -409,21 +386,11 @@
       transparency, and high impact. To provide opportunities nationwide, we have created this digital platform,
       enabling carpenters to directly access and apply for EBCO CSR programs or someone else can nominate carpenters</p>
 
-
   </div>
 
-  <!-- Tabs -->
-  <div class="tab-buttons">
-    <!-- <button onclick="showSection('upskill')" class="tab-btn">Register Now</button> -->
-    <!-- <button onclick="showSection('insurance')" class="tab-btn">Insurance</button> -->
-    <!-- <button onclick="showSection('scholarship')" class="tab-btn">Scholarship</button> -->
-  </div>
+  <!-- ---------------------------------------------------------------------------------- Form ---------------------------------------------------------------------------------- -->
 
-  <!-- Upskill Form -->
   <div id="upskill" class="form-container">
-    <!-- <h2>UpSkill with Ebco</h2> -->
-    <!-- <p style="padding: 1rem 0;">Training to improve your skills, product knowledge and installation methods. After
-      training, you will receive a government-authorised certificate.</p> -->
     <h2>Register Now</h2> 
     <p>Please enter your details: </p>
     <form>
@@ -445,60 +412,6 @@
         <label for="scholarship">Scholarship</label>
         <br><br> 
       </div>
-      <button class="submit-btn" type="submit">Submit</button>
-    </form>
-    <p>Once registered, our team or NGO partner will get in touch for the next steps.</p>
-  </div>
-
-  <!-- Insurance Paragraph -->
-  <div id="insurance" class="form-container" style="display:none;">
-    <h2>Insurance Support</h2>
-    <p style="padding: 1rem 0;">Government-authorized insurance to protect you and your family.</p>
-    <p>This insurance scheme is provided directly by the government to support carpenters and their families. Details
-      will be processed through verified NGO partners to ensure genuine beneficiaries receive timely help.</p>
-    <p>Please stay connected with our field representatives for updates regarding eligibility and required
-      documentation.</p>
-  </div>
-
-  <!-- Scholarship Form -->
-  <div id="scholarship" class="form-container" style="display:none;">
-    <h2>Children Information Form</h2>
-    <p style="padding: 1rem 0;">Scholarship support for your children to help with their education.</p>
-    <form>
-      <div class="form-group">
-        <input type="text" required placeholder="Child (Student) Name" />
-      </div>
-
-      <div class="form-group">
-        <input type="text" required placeholder="School Name & City" />
-      </div>
-
-      <div class="form-group">
-        <input type="text" placeholder="Roll Number" />
-      </div>
-
-      <div class="form-group">
-        <input type="text" placeholder="City and State " />
-      </div>
-
-      <div class="form-group">
-        <input type="text" placeholder="Parents Name" />
-      </div>
-
-      <div class="form-group">
-        <input type="text" placeholder="Parents Contact Number" />
-      </div>
-
-      <div class="form-group">
-        <label>Upload Marksheet</label>
-        <input type="file" accept="image/*,application/pdf" />
-      </div>
-
-      <div class="form-group">
-        <label>Additional Images / PDFs</label>
-        <input type="file" multiple accept="image/*,application/pdf" />
-      </div>
-
       <button class="submit-btn" type="submit">Submit</button>
     </form>
     <p>Once registered, our team or NGO partner will get in touch for the next steps.</p>
@@ -572,7 +485,8 @@
       isDown = false;
     });
 
-    // --- Swipe Handler ---
+    /* ------------------------------------------------------------------------------ Swipe Handler Script ------------------------------------------------------------------------------ */
+
     function handleSwipe(diff) {
       if (diff > 50) {
         plusSlides(-1); // Swipe Right → Previous
@@ -582,16 +496,6 @@
     }
   </script>
 
-  <!-- ---------------------------------------------------------------------- Form Selection Script ---------------------------------------------------------------------- -->
-
-  <script>
-    function showSection(section) {
-      document.getElementById('upskill').style.display = 'none';
-      document.getElementById('insurance').style.display = 'none';
-      document.getElementById('scholarship').style.display = 'none';
-      document.getElementById(section).style.display = 'block';
-    }
-  </script>
 </body>
 
 </html>
