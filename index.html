@@ -6,83 +6,135 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CSR Microsite - Carpenter Initiative</title>
   <style>
+    /* --------------------------------------------------------- Global --------------------------------------------------------- */
+    * {
+      font-family: system-ui, Arial, sans-serif;
+    }
+
     body {
       font-family: system-ui, Arial, sans-serif;
       margin: 0;
-      background: #f5f5f5 url('light-bg.png') center/cover no-repeat;
-      background-attachment: fixed;
-      opacity: 0.98;
+      top: 0px !important;
+      background: #f5f5f5 url('light-bg.png') center/cover no-repeat fixed;
       color: #333;
     }
 
+    .page-wrapper {
+      max-width: 1100px;
+      margin: auto;
+      background: transparent;
+    }
+
+    /* --------------------------------------------------------- Header --------------------------------------------------------- */
     header {
       background: #002244;
       color: #fff;
-      padding: 10px 20px;
-      text-align: center;
-      font-size: 20px;
-      font-weight: bold;
+      padding: 10px 0;
       margin-bottom: 0.5rem;
+      width: 100%;
     }
 
-    /* Header layout fix */
     .header-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin: auto;
-      padding: 0 10px;
-      max-width: 1600px;
+      max-width: 1100px;
     }
 
-    .header-left,
-    .header-center,
-    .header-right {
-      flex: 1;
-    }
-
-    .header-center {
-      text-align: center;
-      font-size: 2rem;
-      font-weight: bold;
-    }
-
-    .header-right {
-      text-align: right;
-    }
-
-    /* Logo size */
     .ebco-logo {
       height: 50px;
       object-fit: contain;
     }
 
-    .lang-select {
-      margin: 0;
-      max-width: 1100px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding-left: 16px;
-      text-align: right;
+    .register-btn {
+      padding: 8px 16px;
+      /* background: #ffcc00; */
+      background: #003366;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+      border: 1px solid white;
     }
 
-    .lang-select select {
-      padding: 2px 5px;
-      font-size: 12px;
-      font-family: system-ui, 'Segoe UI', sans-serif;
-      background-color: #dddddd;
-      border-radius: 5px;
+    .register-btn:hover {
+      /* background: #ffdd33; */
+      background: #d5d5d5;
+      cursor: pointer;
     }
 
-    /* Carousel */
+    /* 1. Hides the "Powered by" text and removes the widget border */
+    .goog-logo-link {
+      display: none !important;
+    }
+
+    .goog-te-banner-frame {
+      display: none !important;
+      /* Hides the iframe container */
+    }
+
+    .goog-te-gadget {
+      color: transparent !important;
+      /* Hide any residual text */
+      font-size: 0 !important;
+      border: none !important;
+      /* Remove the default border */
+    }
+
+    /* 2. Style the actual dropdown select box */
+    .goog-te-combo {
+      /* Dimensions and spacing */
+      padding: 8px 12px !important;
+      border-radius: 6px !important;
+
+      /* Colors for high contrast on the dark header */
+      background-color: #003366 !important;
+      /* Slightly lighter blue than header */
+      color: #ffffff !important;
+      border: 1px solid #f0f0f0 !important;
+
+      font-size: 14px !important;
+
+      /* Ensure the background doesn't interfere with the design */
+      box-shadow: none !important;
+
+      /* Remove any default browser styling */
+      appearance: none !important;
+
+      /* Add a custom arrow if desired (optional, relies on a base64 SVG) */
+      background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path fill="%23ffffff" d="M7 10l5 5 5-5z"/></svg>') !important;
+      background-repeat: no-repeat !important;
+      background-position: right 8px center !important;
+      padding-right: 30px !important;
+      /* Space for the custom arrow */
+    }
+
+    /* 3. Style the options inside the dropdown (since they render differently) */
+    .goog-te-combo option {
+      color: #000 !important;
+      /* Ensure option text is readable against white dropdown background */
+      background-color: #fff !important;
+    }
+
+    /* FORCEFULLY HIDE THE TOOLBAR */
+    body {
+      top: 0 !important;
+      /* Overrides Google's inline style that pushes the body down */
+    }
+
+    .goog-te-banner-frame {
+      display: none !important;
+      /* Hides the entire banner container */
+    }
+
+    /* --------------------------------------------------------- Carousel --------------------------------------------------------- */
     .carousel-container {
       width: 100%;
-      max-width: 1100px;
       margin: 10px auto;
       overflow: hidden;
       border-radius: 10px;
-      aspect-ratio: 16 / 9;
+      aspect-ratio: 16/9;
       position: relative;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     }
@@ -96,79 +148,13 @@
       left: 0;
     }
 
-    .carousel-slide img,
-    .carousel-slide video {
-      width: 100%;
-      height: auto;
-    }
-
-    /* Form */
-    .form-container {
-      width: 100%;
-      max-width: 600px;
-      background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      margin: 30px auto;
-    }
-
-    .form-container h2 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .form-group {
-      margin-bottom: 15px;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 5px;
-    }
-
-    .form-group input,
-    .form-group select {
-      width: 95%;
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 14px;
-      font-family: system-ui, 'Segoe UI', sans-serif;
-    }
-
-    .submit-btn {
-      background: #002244;
-      color: #fff;
-      padding: 14px;
-      border: none;
-      width: 100%;
-      font-size: 16px;
-      border-radius: 5px;
-      cursor: pointer;
-      margin: 0.5rem 0;
-    }
-
-    .submit-btn:hover {
-      background: #003366;
-    }
-
-    footer {
-      text-align: center;
-      padding: 15px 0;
-      background: #002244;
-      color: #fff;
-      margin-top: 30px;
-      width: 100%;
-      font-size: 0.7rem;
-    }
-
     .carousel-slide img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
 
+    /* Carousel arrows */
     .prev,
     .next {
       cursor: pointer;
@@ -183,43 +169,58 @@
       user-select: none;
     }
 
-    .next {
-      right: 10px;
-    }
-
     .prev {
       left: 10px;
     }
 
-    .tab-btn {
-      font-family: system-ui;
-      padding: 0.5rem 2rem;
-      border-radius: 8px;
-      border: none;
-      font-size: 1.5rem;
-      background-color: #dddddd;
-      cursor: pointer;
+    .next {
+      right: 10px;
     }
 
-    .tab-btn:hover {
-      background-color: #ffffff;
-    }
-
-    .tab-buttons {
-      max-width: 1100px;
-      margin: 40px auto;
+    /* --------------------------------------------------------- Cards --------------------------------------------------------- */
+    .cards-wrapper {
+      margin: 30px auto;
       display: flex;
-      gap: 10px;
-      justify-content: center;
+      gap: 20px;
+      justify-content: space-between;
     }
 
+    .card-item {
+      flex: 1;
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: translateY(30px);
+      /* Added: Smooth transition for all effects */
+      transition: all 0.4s ease;
+    }
+
+    /* NEW HOVER EFFECT */
+    .card-item:hover {
+      /* Lifts the card up by 5 pixels */
+      transform: translateY(-5px);
+      /* Makes the shadow larger and more pronounced */
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media(max-width: 900px) {
+      .cards-wrapper {
+        flex-direction: column;
+      }
+    }
+
+    /* --------------------------------------------------------- Text Blocks --------------------------------------------------------- */
     .info-text {
-      max-width: 1100px;
       margin: 20px auto;
-      font-family: system-ui, Arial, sans-serif;
       line-height: 1.6;
       font-size: 16px;
-      padding: 0 16px;
     }
 
     .info-text p {
@@ -227,279 +228,254 @@
       font-size: 1.1rem;
     }
 
-    .info-text ol {
-      padding-left: 20px;
-      margin-top: 10px;
-      font-size: larger;
+    /* --------------------------------------------------------- Popup Form --------------------------------------------------------- */
+    .modal-bg {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+      padding: 20px;
     }
 
-    .info-text ol strong {
-      font-size: 1.3rem;
-      padding: 0px !important;
+    .modal-box {
+      background: #fff;
+      width: 100%;
+      max-width: 500px;
+      border-radius: 10px;
+      padding: 20px;
+      position: relative;
+      animation: fadeIn 0.3s ease;
     }
 
-    .info-text ol li span {
-      font-weight: bold;
-    }
-
-    .info-text ol li {
-      margin: 8px 0;
-    }
-
-    /* ------------------------------ RESPONSIVE FIXES (Mobile/Tablets) ------------------------------ */
-
-    @media(max-width: 900px) {
-
-      header div {
-        flex-direction: column;
-        text-align: center;
-        gap: 1px;
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
       }
 
-      .lang-select {
-        justify-content: center;
-        padding-left: 0 !important;
-        max-width: 100% !important;
-      }
-
-      .lang-select label {
-        font-size: 14px;
-      }
-
-      .carousel-container {
-        max-width: 100%;
-        border-radius: 0;
-      }
-
-      .tab-buttons {
-        flex-direction: column;
-        gap: 15px;
-        padding: 0 15px;
-      }
-
-      .tab-btn {
-        /* width: 100%; */
-        font-size: 1.2rem;
-        padding: 0.7rem 1.2rem;
-        width: fit-content;
-        margin: auto;
-      }
-
-      .info-text {
-        padding: 0 12px;
-        font-size: 15px;
-      }
-
-      .form-container {
-        margin: 20px 12px;
-        width: auto;
-      }
-
-      .prev,
-      .next {
-        font-size: 20px;
-        padding: 8px;
+      to {
+        opacity: 1;
+        transform: scale(1);
       }
     }
 
-    @media(max-width: 500px) {
+    .close-btn {
+      position: absolute;
+      right: 12px;
+      top: 10px;
+      font-size: 20px;
+      cursor: pointer;
+      color: #666;
+    }
 
-      header div div:first-child {
-        font-size: 0.5rem !important;
-      }
+    .form-group {
+      margin-bottom: 12px;
+    }
 
-      .tab-btn {
-        font-size: 1rem;
-        padding: 0.6rem 3rem;
-        width: fit-content;
-        margin: auto;
-      }
+    .form-group input {
+      width: 95%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      /* margin: 4px 0; */
+    }
 
-      .info-text {
-        font-size: 14px;
-      }
+    .submit-btn {
+      background: #002244;
+      color: white;
+      padding: 14px;
+      border: none;
+      width: 100%;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .submit-btn:hover {
+      background: #003366;
+    }
+
+    /* Scholarship nested form */
+    /*     #scholarship-form {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .4s ease;
+      background: #f9f9f9;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 0 12px;
+      margin-top: 12px;
+    }
+
+    #scholarship-inner {
+      opacity: 0;
+      transition: opacity .3s ease;
+      padding: 12px 0;
+    } */
+
+    /* --------------------------------------------------------- Footer --------------------------------------------------------- */
+    footer {
+      text-align: center;
+      padding: 15px 0;
+      background: #002244;
+      color: #fff;
+      margin-top: 50px;
+      width: 100%;
+      font-size: 0.8rem;
     }
   </style>
 </head>
 
-<body>
-
+<body style="top: 0px !important;">
+  <!------------------------------------------------------------ HEADER ------------------------------------------------------------>
   <header>
     <div class="header-bar">
-
-      <div class="header-left">
-        <a href="http://ebco.in" target="_blank"><img src="https://dashboard.ebco.in/wp-content/uploads/2025/11/ebco-logo.png" alt="Ebco Logo" class="ebco-logo"></a>
+      <a href="http://ebco.in" target="_blank">
+        <img src="https://dashboard.ebco.in/wp-content/uploads/2025/11/ebco-logo.png" class="ebco-logo" />
+      </a>
+      <div style="font-size: 1.8rem; font-weight: bold;">CSR Initiative</div>
+      <div style="display: flex; align-items: center; gap: 15px;">
+        <div id="google_translate_element"></div>
+        <a id="openModal" class="register-btn">Register for <br>Scholarship</a>
       </div>
-
-      <div class="header-center">
-        CSR Initiative
-      </div>
-
-      <div class="header-right lang-select">
-        <div id="google_translate_element" style="display:inline-block;"></div>
-      </div>
-
-    </div>
   </header>
 
-  <!------------------------------------------------------------------------------ Carousel ------------------------------------------------------------------------------>
-
-  <div class="carousel-container">
-    <div class="carousel-slide fade">
-      <img src="https://dashboard.ebco.in/wp-content/uploads/2025/11/children-scholarship-image-01.webp" alt="Slide 1" />
-    </div>
-    <div class="carousel-slide fade">
-      <img src="https://dashboard.ebco.in/wp-content/uploads/2025/11/insurance-image-02.webp" alt="Slide 2" />
-    </div>
-    <div class="carousel-slide fade">
-      <img src="https://dashboard.ebco.in/wp-content/uploads/2025/11/carpenter-image-02.webp" alt="Slide 3" />
-    </div>
-    <!-- Your hosted video (this video should be same length of slide auto change)-->
-    <!-- <div class="carousel-slide">
-      <video src="https://dashboard.ebco.in/wp-content/uploads/2025/07/UMBRELLA-PULLOUT-STAND-UPS-AT.mp4" autoplay muted loop></video>
-    </div> -->
-
-    <!-- Controls -->
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-  </div>
-
-  <!------------------------------------------------------------------------------ Paragraphs ------------------------------------------------------------------------------>
-
-  <div class="info-text">
-    <p>EBCO is committed to improving the social and economic well-being of the community particularly carpenters and
-      their families across India through its CSR initiatives. Our programs focus on skill development, financial
-      security, and educational support, ensuring a brighter and more stable future for the carpenter community.</p>
-
-    <p>
-    <ol>
-      <strong>Our Key CSR Initiatives</strong>
-      <li><span>Skill Development</span>: We help carpenters upgrade their skills and gain formal recognition for their
-        existing expertise under Recognition of Prior Learning (RPL), who will get advance skill as well as certificate.
-      </li>
-      <li><span>Insurance</span>: To safeguard the lives and livelihoods of carpenters, we facilitate to get insurance
-        coverage (Health and Accident) and would provide wage loss insurance in case of hospitalization.</li>
-      <li><span>Scholarships for Children</span>: We support the education of carpenters’ children by offering
-        scholarships that encourage learning and reduce financial burden.</li>
-      <li><span>Baseline Survey</span>: We conduct structured surveys to understand the needs of carpenters better and
-        design more effective programs.</li>
-    </ol>
-    </p>
-
-    <p>We collaborate with credible NGOs for the design and execution of all CSR initiatives, ensuring quality,
-      transparency, and high impact. To provide opportunities nationwide, we have created this digital platform,
-      enabling carpenters to directly access and apply for EBCO CSR programs or someone else can nominate carpenters</p>
-
-  </div>
-
-  <!-- ---------------------------------------------------------------------------------- Form ---------------------------------------------------------------------------------- -->
-
-  <div id="upskill" class="form-container">
-    <h2>Register Now</h2> 
-    <p>Please enter your details: </p>
-    <form>
-      <div class="form-group">
-        <input type="text" required placeholder="Name" />
+  <div class="page-wrapper">
+    <!------------------------------------------------------------ Carousel ------------------------------------------------------------>
+    <div class="carousel-container">
+      <div class="carousel-slide">
+        <img src="https://dashboard.ebco.in/wp-content/uploads/2025/11/children-scholarship-image-01.webp">
       </div>
-      <div class="form-group">
-        <input type="text" required placeholder="Contact Number" />
+      <div class="carousel-slide">
+        <img src="https://dashboard.ebco.in/wp-content/uploads/2025/11/insurance-image-02.webp">
       </div>
-      <div>
-        <p>Interested in CSR Initiatives</p>
-        <input type="checkbox" id="skill-training" name="skill-training" value="Bike">
-        <label for="skill-training">Skill Training</label>
-        <br>
-        <input type="checkbox" id="insurance" name="insurance" value="Car">
-        <label for="insurance">Insurance</label>
-        <br>
-        <input type="checkbox" id="scholarship" name="scholarship" value="Boat">
-        <label for="scholarship">Scholarship</label>
-        <br><br> 
+      <div class="carousel-slide">
+        <img src="https://dashboard.ebco.in/wp-content/uploads/2025/11/carpenter-image-02.webp">
       </div>
-      <button class="submit-btn" type="submit">Submit</button>
-    </form>
-    <p>Once registered, our team or NGO partner will get in touch for the next steps.</p>
-  </div>
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <!------------------------------------------------------------ Info Text ------------------------------------------------------------>
 
+    <div class="info-text">
+      <p>EBCO is committed to improving the social and economic well-being of the community particularly carpenters and
+        their families across India through its CSR initiatives. Our programs focus on skill development, financial
+        security, and educational support, ensuring a brighter and more stable future for the carpenter community.</p>
+    </div>
+
+    <!------------------------------------------------------------ Cards ------------------------------------------------------------>
+    <div class="cards-wrapper">
+      <div class="card-item">
+        <h3>Skill Development</h3>
+        <p>We help carpenters upgrade their skills and gain formal recognition for their existing expertise under
+          Recognition of Prior Learning (RPL), who will get advance skill as well as certificate.</p>
+      </div>
+      <div class="card-item">
+        <h3>Secured Future</h3>
+        <p>To safeguard the lives and livelihoods of carpenters, we facilitate to get insurance coverage (Health and
+          Accident) and would provide wage loss insurance in case of hospitalization.</p>
+      </div>
+      <div class="card-item">
+        <h3>Celebrate Excellence</h3>
+        <p>We support the education of carpenters’ children by offering scholarships that encourage learning and reduce
+          financial burden.</p>
+      </div>
+    </div>
+    <!------------------------------------------------------------ More Info ------------------------------------------------------------>
+    <div class="info-text">
+      <p>We collaborate with credible NGOs for the design and execution of all CSR initiatives, ensuring quality,
+        transparency, and high impact. To provide opportunities nationwide, we have created this digital platform,
+        enabling carpenters to directly access and apply for EBCO CSR programs or someone else can nominate carpenters
+      </p>
+    </div>
+  </div> <!-- END .page-wrapper -->
+  <!------------------------------------------------------------ POPUP MODAL FORM ------------------------------------------------------------>
+  <div id="modal" class="modal-bg">
+    <div class="modal-box">
+      <span class="close-btn" id="closeModal">&times;</span>
+      <h2>Register for the Scholarship</h2>
+      <div class="register-now-form">
+        <div class="form-group"><input type="text" id="father-name" placeholder="Father's Name" required /></div>
+        <div class="form-group"><input type="text" id="father-mobile-number" placeholder="Father's Contact Number"
+            required /></div>
+        <div class="form-group"><input type="text" id="child-name" placeholder="Child's Name" required /></div>
+        <div class="form-group"><input type="text" id="child-school-name" placeholder="School Name" required /></div>
+        <div class="form-group"><input type="text" id="child-standard" placeholder="Standard" required /></div>
+        <div class="form-group">
+          <input type="text" id="address-city" placeholder="City" required />
+        </div>
+        <div class="form-group">
+          <input type="text" id="address-state" placeholder="State" required />
+        </div>
+        <div class="form-group">
+          <label style="font-size: 0.9rem;">Upload Marksheet</label>
+          <input type="file" id="marksheet" accept="image/*,application/pdf" required />
+        </div>
+        <div class="form-group">
+          <label style="font-size: 0.9rem;">Upload Admit Card</label>
+          <input type="file" id="admit-card" accept="image/*,application/pdf" />
+        </div>
+      </div>
+      <button class="submit-btn">Submit</button>
+    </div>
+  </div>
+  <!------------------------------------------------------------ FOOTER ------------------------------------------------------------>
   <footer>
-    © 2025 CSR Initiative | Powered by <a href="http://ebco.in" target="_blank" style="color: white;">Ebco</a>
+    © 2025 CSR Initiative | Powered by <a href="http://ebco.in" style="color:white;">Ebco</a>
   </footer>
-
-  <!-- ---------------------------------------------------------------------- Google Translate Script ---------------------------------------------------------------------- -->
-
-  <script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({ pageLanguage: 'en', includedLanguages: 'en,hi,or', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL }, 'google_translate_element');
-    }
-  </script>
-  <script type="text/javascript"
-    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-  <!-- ---------------------------------------------------------------------- Carousel Script ---------------------------------------------------------------------- -->
-
+  <!------------------------------------------------------------ JS SCRIPTS ------------------------------------------------------------>
   <script>
+    /* -------------------------------- Carousel -------------------------------- */
     let slideIndex = 1;
     showSlides(slideIndex);
-    setInterval(() => { plusSlides(1); }, 6000);
-
+    setInterval(() => plusSlides(1), 6000);
     function plusSlides(n) {
       showSlides(slideIndex += n);
     }
-
     function showSlides(n) {
-      let i;
       let slides = document.getElementsByClassName("carousel-slide");
-      if (n > slides.length) { slideIndex = 1 }
-      if (n < 1) { slideIndex = slides.length }
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
+      if (n > slides.length) slideIndex = 1;
+      if (n < 1) slideIndex = slides.length;
+      for (let i = 0; i < slides.length; i++) slides[i].style.display = "none";
       slides[slideIndex - 1].style.display = "block";
     }
 
-    // SWIPE + DRAG for carousel
-    const carousel = document.querySelector('.carousel-container');
-    let startX = 0;
-    let isDown = false;
+    /* -------------------------------- Reveal Cards -------------------------------- */
+    const cards = document.querySelectorAll(".card-item");
+    function revealCards() {
+      cards.forEach(card => {
+        const position = card.getBoundingClientRect().top;
+        if (position < window.innerHeight - 100) card.classList.add("card-visible");
+      });
+    }
+    window.addEventListener("scroll", revealCards);
+    window.addEventListener("load", revealCards);
+    /* -------------------------------- Modal -------------------------------- */
+    const modal = document.getElementById("modal");
+    document.getElementById("openModal").onclick = () => modal.style.display = "flex";
+    document.getElementById("closeModal").onclick = () => modal.style.display = "none";
+    window.onclick = e => { if (e.target == modal) modal.style.display = "none"; }
 
-    // --- Touch Events (Mobile) ---
-    carousel.addEventListener('touchstart', (e) => {
-      startX = e.touches[0].clientX;
-    });
 
-    carousel.addEventListener('touchend', (e) => {
-      let endX = e.changedTouches[0].clientX;
-      handleSwipe(endX - startX);
-    });
+    /* -------------------------------- Google Translate Initialization -------------------------------- */
 
-    // --- Mouse Drag Events (Desktop) ---
-    carousel.addEventListener('mousedown', (e) => {
-      isDown = true;
-      startX = e.clientX;
-    });
-
-    carousel.addEventListener('mouseup', (e) => {
-      if (!isDown) return;
-      isDown = false;
-      let endX = e.clientX;
-      handleSwipe(endX - startX);
-    });
-
-    carousel.addEventListener('mouseleave', () => {
-      isDown = false;
-    });
-
-    /* ------------------------------------------------------------------------------ Swipe Handler Script ------------------------------------------------------------------------------ */
-
-    function handleSwipe(diff) {
-      if (diff > 50) {
-        plusSlides(-1); // Swipe Right → Previous
-      } else if (diff < -50) {
-        plusSlides(1);  // Swipe Left → Next
-      }
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en', // The language the page is currently written in
+        includedLanguages: 'en,hi,mr', // The languages you want to offer
+        layout: google.translate.TranslateElement.InlineLayout.NO_TOOLBAR // Simple dropdown
+      }, 'google_translate_element');
     }
   </script>
 
+  <script type="text/javascript"
+    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 
 </html>
