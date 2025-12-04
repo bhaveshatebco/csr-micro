@@ -423,6 +423,7 @@ footer {
 
   /* Tighter spacing for general elements */
   .info-text {
-    margin: 10px auto;
+    margin: 25px auto;
   }
 }
+
