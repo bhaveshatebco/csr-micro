@@ -1,424 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
   <meta charset="UTF-8" />
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CSR Microsite - Carpenter Initiative</title>
-  <style>
-    /* --------------------------------------------------------- Global --------------------------------------------------------- */
-    * {
-      font-family: system-ui, Arial, sans-serif;
-      box-sizing: border-box;
-      /* Crucial for preventing horizontal scroll with padding/borders */
-    }
-
-    body {
-      /* Removed redundant font-family */
-      margin: 0;
-      top: 0px !important;
-      overflow-x: hidden;
-      /* Ensures no horizontal scrolling */
-      background: #f5f5f5 url('light-bg.png') center/cover no-repeat fixed;
-      color: #333;
-    }
-
-    .page-wrapper {
-      max-width: 1100px;
-      margin: auto;
-      background: transparent;
-    }
-
-    /* --------------------------------------------------------- Header --------------------------------------------------------- */
-    header {
-      background: #002244;
-      color: #fff;
-      padding: 10px 0;
-      margin-bottom: 0.5rem;
-      width: 100%;
-    }
-
-    .header-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin: auto;
-      max-width: 1100px;
-      padding: 0 10px;
-      /* Base padding for large screens */
-    }
-
-    .ebco-logo {
-      height: 50px;
-      object-fit: contain;
-    }
-
-    .register-btn {
-      padding: 8px 16px;
-      background: #003366;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 14px;
-      border: 1px solid white;
-      color: #fff;
-      /* Added missing color */
-    }
-
-    .register-btn:hover {
-      background: #d5d5d5;
-      cursor: pointer;
-      color: #002244;
-      /* Added hover text color */
-    }
-
-    /* Google Translate Widget Cleanup */
-    .goog-logo-link,
-    .goog-te-banner-frame {
-      display: none !important;
-    }
-
-    .goog-te-gadget {
-      color: transparent !important;
-      font-size: 0 !important;
-      border: none !important;
-    }
-
-    .goog-te-combo {
-      padding: 8px 12px !important;
-      border-radius: 6px !important;
-      background-color: #003366 !important;
-      color: #ffffff !important;
-      border: 1px solid #f0f0f0 !important;
-      font-size: 14px !important;
-      box-shadow: none !important;
-      appearance: none !important;
-      background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path fill="%23ffffff" d="M7 10l5 5 5-5z"/></svg>') !important;
-      background-repeat: no-repeat !important;
-      background-position: right 8px center !important;
-      padding-right: 30px !important;
-    }
-
-    .goog-te-combo option {
-      color: #000 !important;
-      background-color: #fff !important;
-    }
-
-    /* --------------------------------------------------------- Carousel --------------------------------------------------------- */
-    .carousel-container {
-      width: 100%;
-      margin: 10px auto;
-      overflow: hidden;
-      border-radius: 10px;
-      aspect-ratio: 16/9;
-      position: relative;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    .carousel-slide {
-      display: none;
-      height: 100%;
-      width: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-
-    .carousel-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* Carousel arrows */
-    .prev,
-    .next {
-      cursor: pointer;
-      position: absolute;
-      top: 50%;
-      padding: 12px;
-      color: #fff;
-      font-size: 24px;
-      transform: translateY(-50%);
-      background: rgba(0, 0, 0, 0.1);
-      border-radius: 5px;
-      user-select: none;
-    }
-
-    .prev {
-      left: 10px;
-    }
-
-    .next {
-      right: 10px;
-    }
-
-    /* --------------------------------------------------------- Cards --------------------------------------------------------- */
-    .cards-wrapper {
-      margin: 30px auto;
-      display: flex;
-      gap: 20px;
-      justify-content: space-between;
-    }
-
-    .card-item {
-      flex: 1;
-      /* NEW GRADIENT: Starts with the color #002244 and quickly fades to white */
-      /* background: linear-gradient(180deg, #002244 5%, #ffffff 40%);  */
-      background: #c4dcf4;
-      /* The color #002244 is fully visible at 0% (top) and fades to white by 5% down the card. */
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.4s ease;
-    }
-
-    .card-item:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
-      background: #a4ccf4;
-    }
-
-    .card-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* --------------------------------------------------------- Text Blocks --------------------------------------------------------- */
-    .info-text {
-      margin: 20px auto;
-      line-height: 1.6;
-      font-size: 16px;
-    }
-
-    .info-text p {
-      margin: 3rem 0;
-      font-size: 1.1rem;
-    }
-
-    /* --------------------------------------------------------- Popup Form --------------------------------------------------------- */
-    .modal-bg {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-      padding: 20px;
-
-    }
-
-    .modal-box {
-      background: #fff;
-      width: 100%;
-      max-width: 500px;
-      border-radius: 10px;
-      padding: 20px;
-      position: relative;
-      animation: fadeIn 0.3s ease;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: scale(0.95);
-      }
-
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    .close-btn {
-      position: absolute;
-      right: 12px;
-      top: 10px;
-      font-size: 20px;
-      cursor: pointer;
-      color: #666;
-    }
-
-    .form-group {
-      margin-bottom: 12px;
-    }
-
-    .form-group input {
-      width: 100%;
-      /* Changed from 95% for better responsiveness */
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-    }
-
-    .submit-btn {
-      background: #002244;
-      color: white;
-      padding: 14px;
-      border: none;
-      width: 100%;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-
-    .submit-btn:hover {
-      background: #003366;
-    }
-
-    /* --------------------------------------------------------- Footer --------------------------------------------------------- */
-    footer {
-      background: #002244;
-      color: #fff;
-      padding: 15px 0;
-      margin-top: 50px;
-      width: 100%;
-      font-size: 0.8rem;
-    }
-
-    .footer-content {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 20px;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-    }
-
-    .footer-left,
-    .footer-right {
-      margin: 0;
-      min-width: 0;
-    }
-
-    .footer-right {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-    }
-
-    /* --------------------------------------------------------- Responsive Media Queries --------------------------------------------------------- */
-
-    /* Low-Resolution Desktop / Large Tablet (Max 1280px) */
-    @media (max-width: 1280px) {
-
-      /* Low-Resolution Desktop / Large Tablet (Max 1280px) */
-      @media (max-width: 1280px) {
-        /* ... existing rules for .page-wrapper, etc. ... */
-
-        .modal-bg {
-          /* FIX: Prevents vertical centering, aligning content to the top */
-          align-items: flex-start;
-          /* Adds essential space at the top/bottom of the modal */
-          padding: 20px 20px;
-          /* Ensures the background itself can scroll if needed */
-          overflow-y: auto;
-        }
-
-        .modal-box {
-          /* Limits the form height to prevent it from pushing off-screen */
-          max-height: 90vh;
-          /* Ensures the form's content scrolls if the box is too small */
-          overflow-y: auto;
-        }
-
-        /* ... rest of the 1280px rules ... */
-      }
-
-      .page-wrapper,
-      .header-bar {
-        max-width: 95%;
-        /* padding: 0 15px; */
-        /* Added internal padding to .page-wrapper children */
-      }
-
-      .carousel-container {
-        max-width: 95%;
-        margin: 10px auto;
-      }
-
-      .info-text p {
-        margin: 2rem 0;
-      }
-
-      .footer-content {
-        max-width: 95%;
-      }
-    }
-
-    /* Tablet / Mid-Screen (Max 900px) */
-    @media (max-width: 900px) {
-      .cards-wrapper {
-        flex-direction: column;
-        /* Stacks the cards vertically */
-      }
-    }
-
-    /* Mobile (Max 600px) */
-    @media (max-width: 600px) {
-
-      /* Header Stacking Fix */
-      .header-bar {
-        flex-direction: column;
-        align-items: center;
-        padding: 10px 15px;
-        gap: 8px;
-      }
-
-      .header-bar>div:last-child {
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-        width: 100%;
-        /* Ensures button and translate widget utilize full space */
-      }
-
-      /* Footer Stacking Fix */
-      .footer-content {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-        padding: 0 15px;
-      }
-
-      .footer-left,
-      .footer-right {
-        width: 100%;
-        text-align: left;
-      }
-    }
-
-    /* Smallest Mobile / Modal Optimization (Max 480px) */
-    @media (max-width: 480px) {
-
-      /* Form Modal Fix */
-      .modal-box {
-        max-width: 95%;
-        padding: 10px;
-        /* Reduced padding for tiny screens */
-      }
-
-      .modal-bg {
-        padding: 5px;
-        overflow-y: auto;
-      }
-
-      /* Tighter spacing for general elements */
-      .info-text {
-        margin: 10px auto;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <script src="lang-data.js" defer></script>
 </head>
 
 <body style="top: 0px !important;">
@@ -427,10 +15,14 @@
       <a href="http://ebco.in" target="_blank">
         <img src="https://dashboard.ebco.in/wp-content/uploads/2025/11/ebco-logo.png" class="ebco-logo" />
       </a>
-      <div style="font-size: 1.8rem; font-weight: bold;">CSR Initiative</div>
+      <div data-key="header_title" style="font-size: 1.8rem; font-weight: bold;">CSR Initiative</div>
       <div style="display: flex; align-items: center; gap: 15px;">
-        <div id="google_translate_element"></div>
-        <a id="openModal" class="register-btn">Register for <br>Scholarship</a>
+        <select id="language-selector" class="goog-te-combo">
+          <option value="en">English</option>
+          <option value="hi">Hindi</option>
+          <option value="or">Odia</option>
+        </select>
+        <a id="openModal" class="register-btn" data-key="btn_register">Register for <br>Scholarship</a>
       </div>
     </div>
   </header>
@@ -449,7 +41,7 @@
       <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
       <a class="next" onclick="plusSlides(1)">&#10095;</a>
     </div>
-    <div class="info-text">
+    <div data-key="info_para1" class="info-text">
       <p>EBCO is committed to improving the social and economic well-being of the community particularly
         carpenters and
         their families across India through its CSR initiatives. Our programs focus on skill development,
@@ -460,28 +52,30 @@
 
     <div class="cards-wrapper">
       <div class="card-item">
-        <h3>Skill Development</h3>
-        <p>We help carpenters <strong>upgrade their skills</strong> and gain formal recognition for their
-          existing
-          expertise under Recognition of Prior Learning (RPL), who will get advance skill as well as
-          certificate.</p>
+        <h3 data-key="skill-development-card-title">Skill Development</h3>
+        <p data-key="skill-development-card-para">We help carpenters <strong>upgrade their skills</strong> and gain
+          formal recognition for their existing expertise under Recognition of Prior Learning (RPL), who will get
+          advance skill as well as <strong>certificate</strong>. </p>
       </div>
       <div class="card-item">
-        <h3>Secured Future</h3>
-        <p>To safeguard the lives and livelihoods of carpenters, we facilitate to get <strong>insurance
+        <h3 data-key="secured-future-card-title">Secured Future</h3>
+        <p data-key="secured-future-card-para">To safeguard the lives and livelihoods of carpenters, we facilitate to
+          get <strong>insurance
             coverage</strong> (Health and Accident) and would provide wage loss insurance in case of
           hospitalization.
         </p>
       </div>
       <div class="card-item">
-        <h3>Celebrate Excellence</h3>
-        <p>We support the education of carpenters’ children by offering <strong>scholarships </strong>that
+        <h3 data-key="celebrate-excellence-card-title">Celebrate Excellence</h3>
+        <p data-key="celebrate-excellence-card-para">We support the education of carpenters’ children by offering
+          <strong>scholarships </strong>that
           encourage
-          learning and reducefinancial burden.</p>
+          learning and reducefinancial burden.
+        </p>
       </div>
     </div>
     <div class="info-text">
-      <p>We collaborate with credible NGOs for the design and execution of all CSR initiatives, ensuring quality,
+      <p data-key="info_para2">We collaborate with credible NGOs for the design and execution of all CSR initiatives, ensuring quality,
         transparency, and high impact. To provide opportunities nationwide, we have created this digital
         platform,
         enabling carpenters to directly access and apply for EBCO CSR programs or someone else can nominate
@@ -492,90 +86,41 @@
   <div id="modal" class="modal-bg">
     <div class="modal-box">
       <span class="close-btn" id="closeModal">&times;</span>
-      <h2>Register for the Scholarship</h2>
+      <h2 data-key="modal_title">Register for the Scholarship</h2>
       <div class="register-now-form">
-        <div class="form-group"><input type="text" id="father-name" placeholder="Father's Name" required />
+        <div class="form-group"><input data-key="modal-father-name" type="text" id="father-name" placeholder="Father's Name" required />
         </div>
-        <div class="form-group"><input type="text" id="father-mobile-number" placeholder="Father's Contact Number"
+        <div class="form-group"><input data-key="modal-father-mobile-number" type="text" id="father-mobile-number" placeholder="Father's Mobile Number"
             required /></div>
-        <div class="form-group"><input type="text" id="child-name" placeholder="Child's Name" required /></div>
-        <div class="form-group"><input type="text" id="child-school-name" placeholder="School Name" required />
+        <div class="form-group"><input data-key="modal-child-name" type="text" id="child-name" placeholder="Child's Name" required /></div>
+        <div class="form-group"><input data-key="modal-child-school-name" type="text" id="child-school-name" placeholder="School Name" required />
         </div>
-        <div class="form-group"><input type="text" id="child-class" placeholder="Class" required /></div>
-        <div class="form-group"><input type="text" id="address-city" placeholder="City" required /></div>
-        <div class="form-group"><input type="text" id="address-state" placeholder="State" required /></div>
-        <div class="form-group"><input type="text" id="address-pincode" placeholder="Pin code" required /></div>
+        <div class="form-group"><input data-key="modal-child-class" type="text" id="child-class" placeholder="Class" required /></div>
+        <div class="form-group"><input data-key="modal-address-city" type="text" id="address-city" placeholder="City" required /></div>
+        <div class="form-group"><input data-key="modal-address-state" type="text" id="address-state" placeholder="State" required /></div>
+        <div class="form-group"><input data-key="modal-address-pincode" type="text" id="address-pincode" placeholder="Pin code" required /></div>
         <div class="form-group">
-          <label style="font-size: 0.9rem;">Upload Marksheet</label>
-          <input type="file" id="marksheet" accept="image/*,application/pdf" required />
+          <label data-key="modal-marksheet" style="font-size: 0.9rem;">Upload Marksheet</label>
+          <input data-key="modal-admit-card" type="file" id="marksheet" accept="image/*,application/pdf" required />
         </div>
         <div class="form-group">
-          <label style="font-size: 0.9rem;">Upload Admit Card</label>
+          <label data-key="modal-" style="font-size: 0.9rem;">Upload Admit Card</label>
           <input type="file" id="admit-card" accept="image/*,application/pdf" />
         </div>
       </div>
-      <button class="submit-btn">Submit</button>
+      <button data-key="modal-submit" class="submit-btn">Submit</button>
     </div>
   </div>
   <footer>
     <div class="footer-content">
       <div class="footer-left">
-        <span>© 2025 CSR Initiative | Powered by <a href="http://ebco.in" style="color:white;">Ebco</a></span>
+        <span data-key="footer_left">© 2025 CSR Initiative | Powered by <a href="http://ebco.in" style="color:white;">Ebco</a></span>
       </div>
       <div class="footer-right">
-        <span>Contact Us: demo@ebco.in</span>
-        <span>Toll-Free: 12345678900</span>
+        <span data-key="footer_contact">Contact Us: abc@ebco.in</span>
+        <span data-key="footer_tollfree">Toll-Free: 12345678900</span>
       </div>
     </div>
   </footer>
-
-  <script>
-    /* -------------------------------- Carousel -------------------------------- */
-    let slideIndex = 1;
-    showSlides(slideIndex);
-    setInterval(() => plusSlides(1), 6000);
-    function plusSlides(n) {
-      showSlides(slideIndex += n);
-    }
-    function showSlides(n) {
-      let slides = document.getElementsByClassName("carousel-slide");
-      if (n > slides.length) slideIndex = 1;
-      if (n < 1) slideIndex = slides.length;
-      for (let i = 0; i < slides.length; i++) slides[i].style.display = "none";
-      slides[slideIndex - 1].style.display = "block";
-    }
-
-    /* -------------------------------- Reveal Cards -------------------------------- */
-    const cards = document.querySelectorAll(".card-item");
-    function revealCards() {
-      cards.forEach(card => {
-        const position = card.getBoundingClientRect().top;
-        if (position < window.innerHeight - 100) card.classList.add("card-visible");
-      });
-    }
-    window.addEventListener("scroll", revealCards);
-    window.addEventListener("load", revealCards);
-    /* -------------------------------- Modal -------------------------------- */
-    const modal = document.getElementById("modal");
-    document.getElementById("openModal").onclick = () => modal.style.display = "flex";
-    document.getElementById("closeModal").onclick = () => modal.style.display = "none";
-    window.onclick = e => { if (e.target == modal) modal.style.display = "none"; }
-
-
-    /* -------------------------------- Google Translate Initialization -------------------------------- */
-
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'en', // The language the page is currently written in
-        includedLanguages: 'en,hi,mr', // The languages you want to offer
-        layout: google.translate.TranslateElement.InlineLayout.NO_TOOLBAR // Simple dropdown
-      }, 'google_translate_element');
-    }
-  </script>
-
-
-  <script type="text/javascript"
-    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
-
 </html>
