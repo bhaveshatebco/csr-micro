@@ -63,7 +63,23 @@ header {
   color: #002244;
   /* Added hover text color */
 }
+.goog-te-combo {
+    padding: 8px 12px;
+    border-radius: 6px;
+    background-color: #003366;
+    color: #ffffff;
+    border: 1px solid #f0f0f0;
+    font-size: 14px;
+    box-shadow: none;
+    /* Restore the default system dropdown arrow */
+    appearance: menulist-button; 
+}
 
+.goog-te-combo option {
+    /* Ensure the options are readable (default browser appearance should be fine) */
+    color: #000;
+    background-color: #fff;
+}
 
 /* --------------------------------------------------------- Carousel --------------------------------------------------------- */
 .carousel-container {
