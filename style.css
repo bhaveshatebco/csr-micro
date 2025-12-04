@@ -186,11 +186,17 @@
     }
 
     .info-text p {
-      margin: 3rem 0;
+      margin: 3rem 0; 
       font-size: 1.1rem;
     }
 
     /* --------------------------------------------------------- Popup Form --------------------------------------------------------- */
+    
+    /* CSS to prevent scrolling on the body */
+    .modal-open {
+        overflow: hidden;
+    }
+    
     .modal-bg {
       display: none;
       position: fixed;
@@ -230,9 +236,9 @@
 
     .close-btn {
       position: absolute;
-      right: 12px;
+      right: 20px; 
       top: 10px;
-      font-size: 20px;
+      font-size: 40px;
       cursor: pointer;
       color: #666;
     }
@@ -357,21 +363,56 @@
     /* Mobile (Max 600px) */
     @media (max-width: 600px) {
 
-      /* Header Stacking Fix */
-      .header-bar {
-        flex-direction: column;
-        align-items: center;
+.header-bar {
+        display: block;
         padding: 10px 15px;
-        gap: 8px;
-      }
+        overflow: auto; 
+    }
 
-      .header-bar>div:last-child {
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
+    /* 1. Row 1: Logo (Left) */
+    .header-bar > a:first-child { 
+        float: left;
+        margin-right: 15px;
+    }
+
+    /* 1. Row 1: Page Title (Flows next) */
+    .header-bar > div:nth-child(2) { 
+        text-align: center;
+        font-size: 2rem !important;
+        padding-bottom: 1rem;
+        /* No margin-top needed here as it flows next to the logo */
+    }
+    
+    /* 2. Row 2: Language Controls (Starts New Row) */
+    .language-controls {
+        clear: both; /* Forces new row */
         width: 100%;
-        /* Ensures button and translate widget utilize full space */
-      }
+        display: flex;
+        justify-content: center;
+        
+        /* ADD SPACE ABOVE THIS ROW */
+        margin-top: 15px; 
+    }
+
+    .ebco-logo{
+        height: 40px;
+    }
+
+    #language-selector{
+        margin-right: auto;
+    }
+
+    /* 3. Row 3: Register Button (Starts New Row) */
+    .header-bar > a#openModal { 
+        clear: both; /* Forces new row */
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: fit-content;
+        
+        /* ADD SPACE ABOVE THIS ROW */
+        margin-top: 15px; 
+    }
 
       /* Footer Stacking Fix */
       .footer-content {
