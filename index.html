@@ -2,19 +2,25 @@
 <html lang="en">
 
 <head>
+  
   <meta charset="UTF-8" />
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CSR Microsite - Carpenter Initiative</title>
-  <style>
+   <title>CSR Microsite - Carpenter Initiative</title>
+   <style>
     /* --------------------------------------------------------- Global --------------------------------------------------------- */
     * {
       font-family: system-ui, Arial, sans-serif;
+      box-sizing: border-box;
+      /* Crucial for preventing horizontal scroll with padding/borders */
     }
 
     body {
-      font-family: system-ui, Arial, sans-serif;
+      /* Removed redundant font-family */
       margin: 0;
       top: 0px !important;
+      overflow-x: hidden;
+      /* Ensures no horizontal scrolling */
       background: #f5f5f5 url('light-bg.png') center/cover no-repeat fixed;
       color: #333;
     }
@@ -40,6 +46,8 @@
       align-items: center;
       margin: auto;
       max-width: 1100px;
+      padding: 0 10px;
+      /* Base padding for large screens */
     }
 
     .ebco-logo {
@@ -49,83 +57,53 @@
 
     .register-btn {
       padding: 8px 16px;
-      /* background: #ffcc00; */
       background: #003366;
       border-radius: 6px;
       text-decoration: none;
       font-weight: bold;
       font-size: 14px;
       border: 1px solid white;
+      color: #fff;
+      /* Added missing color */
     }
 
     .register-btn:hover {
-      /* background: #ffdd33; */
       background: #d5d5d5;
       cursor: pointer;
+      color: #002244;
+      /* Added hover text color */
     }
 
-    /* 1. Hides the "Powered by" text and removes the widget border */
-    .goog-logo-link {
-      display: none !important;
-    }
-
+    /* Google Translate Widget Cleanup */
+    .goog-logo-link,
     .goog-te-banner-frame {
       display: none !important;
-      /* Hides the iframe container */
     }
 
     .goog-te-gadget {
       color: transparent !important;
-      /* Hide any residual text */
       font-size: 0 !important;
       border: none !important;
-      /* Remove the default border */
     }
 
-    /* 2. Style the actual dropdown select box */
     .goog-te-combo {
-      /* Dimensions and spacing */
       padding: 8px 12px !important;
       border-radius: 6px !important;
-
-      /* Colors for high contrast on the dark header */
       background-color: #003366 !important;
-      /* Slightly lighter blue than header */
       color: #ffffff !important;
       border: 1px solid #f0f0f0 !important;
-
       font-size: 14px !important;
-
-      /* Ensure the background doesn't interfere with the design */
       box-shadow: none !important;
-
-      /* Remove any default browser styling */
       appearance: none !important;
-
-      /* Add a custom arrow if desired (optional, relies on a base64 SVG) */
       background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path fill="%23ffffff" d="M7 10l5 5 5-5z"/></svg>') !important;
       background-repeat: no-repeat !important;
       background-position: right 8px center !important;
       padding-right: 30px !important;
-      /* Space for the custom arrow */
     }
 
-    /* 3. Style the options inside the dropdown (since they render differently) */
     .goog-te-combo option {
       color: #000 !important;
-      /* Ensure option text is readable against white dropdown background */
       background-color: #fff !important;
-    }
-
-    /* FORCEFULLY HIDE THE TOOLBAR */
-    body {
-      top: 0 !important;
-      /* Overrides Google's inline style that pushes the body down */
-    }
-
-    .goog-te-banner-frame {
-      display: none !important;
-      /* Hides the entire banner container */
     }
 
     /* --------------------------------------------------------- Carousel --------------------------------------------------------- */
@@ -193,27 +171,17 @@
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       opacity: 0;
       transform: translateY(30px);
-      /* Added: Smooth transition for all effects */
       transition: all 0.4s ease;
     }
 
-    /* NEW HOVER EFFECT */
     .card-item:hover {
-      /* Lifts the card up by 5 pixels */
       transform: translateY(-5px);
-      /* Makes the shadow larger and more pronounced */
       box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
     }
 
     .card-visible {
       opacity: 1;
       transform: translateY(0);
-    }
-
-    @media(max-width: 900px) {
-      .cards-wrapper {
-        flex-direction: column;
-      }
     }
 
     /* --------------------------------------------------------- Text Blocks --------------------------------------------------------- */
@@ -241,6 +209,7 @@
       align-items: center;
       z-index: 999;
       padding: 20px;
+      
     }
 
     .modal-box {
@@ -279,11 +248,11 @@
     }
 
     .form-group input {
-      width: 95%;
+      width: 100%;
+      /* Changed from 95% for better responsiveness */
       padding: 12px;
       border: 1px solid #ccc;
       border-radius: 6px;
-      /* margin: 4px 0; */
     }
 
     .submit-btn {
@@ -301,135 +270,260 @@
       background: #003366;
     }
 
-    /* Scholarship nested form */
-    /*     #scholarship-form {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height .4s ease;
-      background: #f9f9f9;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      padding: 0 12px;
-      margin-top: 12px;
-    }
-
-    #scholarship-inner {
-      opacity: 0;
-      transition: opacity .3s ease;
-      padding: 12px 0;
-    } */
-
     /* --------------------------------------------------------- Footer --------------------------------------------------------- */
     footer {
-      text-align: center;
-      padding: 15px 0;
       background: #002244;
       color: #fff;
+      padding: 15px 0;
       margin-top: 50px;
       width: 100%;
       font-size: 0.8rem;
+    }
+
+    .footer-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .footer-left,
+    .footer-right {
+      margin: 0;
+      min-width: 0;
+    }
+
+    .footer-right {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    /* --------------------------------------------------------- Responsive Media Queries --------------------------------------------------------- */
+
+    /* Low-Resolution Desktop / Large Tablet (Max 1280px) */
+    @media (max-width: 1280px) {
+
+      /* Low-Resolution Desktop / Large Tablet (Max 1280px) */
+@media (max-width: 1280px) {
+    /* ... existing rules for .page-wrapper, etc. ... */
+    
+    .modal-bg {
+        /* FIX: Prevents vertical centering, aligning content to the top */
+        align-items: flex-start; 
+        /* Adds essential space at the top/bottom of the modal */
+        padding: 20px 20px; 
+        /* Ensures the background itself can scroll if needed */
+        overflow-y: auto; 
+    }
+    
+    .modal-box {
+        /* Limits the form height to prevent it from pushing off-screen */
+        max-height: 90vh; 
+        /* Ensures the form's content scrolls if the box is too small */
+        overflow-y: auto; 
+    }
+    
+    /* ... rest of the 1280px rules ... */
+}
+
+      .page-wrapper,
+      .header-bar {
+        max-width: 95%;
+        /* padding: 0 15px; */
+        /* Added internal padding to .page-wrapper children */
+      }
+
+      .carousel-container {
+        max-width: 95%;
+        margin: 10px auto;
+      }
+
+      .info-text p {
+        margin: 2rem 0;
+      }
+
+      .footer-content {
+        max-width: 95%;
+      }
+    }
+
+    /* Tablet / Mid-Screen (Max 900px) */
+    @media (max-width: 900px) {
+      .cards-wrapper {
+        flex-direction: column;
+        /* Stacks the cards vertically */
+      }
+    }
+
+    /* Mobile (Max 600px) */
+    @media (max-width: 600px) {
+
+      /* Header Stacking Fix */
+      .header-bar {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 15px;
+        gap: 8px;
+      }
+
+      .header-bar>div:last-child {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+        /* Ensures button and translate widget utilize full space */
+      }
+
+      /* Footer Stacking Fix */
+      .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 0 15px;
+      }
+
+      .footer-left,
+      .footer-right {
+        width: 100%;
+        text-align: left;
+      }
+    }
+
+    /* Smallest Mobile / Modal Optimization (Max 480px) */
+    @media (max-width: 480px) {
+
+      /* Form Modal Fix */
+      .modal-box {
+        max-width: 95%;
+        padding: 10px;
+        /* Reduced padding for tiny screens */
+      }
+
+      .modal-bg {
+        padding: 5px;
+        overflow-y: auto;
+      }
+
+      /* Tighter spacing for general elements */
+      .info-text {
+        margin: 10px auto;
+      }
     }
   </style>
 </head>
 
 <body style="top: 0px !important;">
-  <!------------------------------------------------------------ HEADER ------------------------------------------------------------>
-  <header>
-    <div class="header-bar">
-      <a href="http://ebco.in" target="_blank">
-        <img src="https://dashboard.ebco.in/wp-content/uploads/2025/11/ebco-logo.png" class="ebco-logo" />
-      </a>
-      <div style="font-size: 1.8rem; font-weight: bold;">CSR Initiative</div>
-      <div style="display: flex; align-items: center; gap: 15px;">
-        <div id="google_translate_element"></div>
-        <a id="openModal" class="register-btn">Register for <br>Scholarship</a>
-      </div>
-  </header>
+    <header>
+      <div class="header-bar">
+         <a href="http://ebco.in" target="_blank">
+            <img src="https://dashboard.ebco.in/wp-content/uploads/2025/11/ebco-logo.png" class="ebco-logo" />
+           </a>
+         <div style="font-size: 1.8rem; font-weight: bold;">CSR Initiative</div>
+         <div style="display: flex; align-items: center; gap: 15px;">
+            <div id="google_translate_element"></div>
+            <a id="openModal" class="register-btn">Register for <br>Scholarship</a>
+           </div>
+        </div>
+     </header>
 
-  <div class="page-wrapper">
-    <!------------------------------------------------------------ Carousel ------------------------------------------------------------>
-    <div class="carousel-container">
-      <div class="carousel-slide">
-        <img src="https://dashboard.ebco.in/wp-content/uploads/2025/11/children-scholarship-image-01.webp">
-      </div>
-      <div class="carousel-slide">
-        <img src="https://dashboard.ebco.in/wp-content/uploads/2025/11/insurance-image-02.webp">
-      </div>
-      <div class="carousel-slide">
-        <img src="https://dashboard.ebco.in/wp-content/uploads/2025/11/carpenter-image-02.webp">
-      </div>
-      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-      <a class="next" onclick="plusSlides(1)">&#10095;</a>
-    </div>
-    <!------------------------------------------------------------ Info Text ------------------------------------------------------------>
+   <div class="page-wrapper">
+        <div class="carousel-container">
+         <div class="carousel-slide">
+            <img src="https://dashboard.ebco.in/wp-content/uploads/2025/11/children-scholarship-image-01.webp">
+           </div>
+         <div class="carousel-slide">
+            <img src="https://dashboard.ebco.in/wp-content/uploads/2025/11/insurance-image-02.webp">
+           </div>
+         <div class="carousel-slide">
+            <img src="https://dashboard.ebco.in/wp-content/uploads/2025/11/carpenter-image-02.webp">
+           </div>
+         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+         <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <div class="info-text">
+         <p>EBCO is committed to improving the social and economic well-being of the community particularly
+        carpenters and
+            their families across India through its CSR initiatives. Our programs focus on skill development,
+        financial
+            security, and educational support, ensuring a brighter and more stable future for the carpenter
+        community.</p>
+        </div>
 
-    <div class="info-text">
-      <p>EBCO is committed to improving the social and economic well-being of the community particularly carpenters and
-        their families across India through its CSR initiatives. Our programs focus on skill development, financial
-        security, and educational support, ensuring a brighter and more stable future for the carpenter community.</p>
-    </div>
-
-    <!------------------------------------------------------------ Cards ------------------------------------------------------------>
-    <div class="cards-wrapper">
-      <div class="card-item">
-        <h3>Skill Development</h3>
-        <p>We help carpenters upgrade their skills and gain formal recognition for their existing expertise under
-          Recognition of Prior Learning (RPL), who will get advance skill as well as certificate.</p>
-      </div>
-      <div class="card-item">
-        <h3>Secured Future</h3>
-        <p>To safeguard the lives and livelihoods of carpenters, we facilitate to get insurance coverage (Health and
-          Accident) and would provide wage loss insurance in case of hospitalization.</p>
-      </div>
-      <div class="card-item">
-        <h3>Celebrate Excellence</h3>
-        <p>We support the education of carpenters’ children by offering scholarships that encourage learning and reduce
-          financial burden.</p>
-      </div>
-    </div>
-    <!------------------------------------------------------------ More Info ------------------------------------------------------------>
-    <div class="info-text">
-      <p>We collaborate with credible NGOs for the design and execution of all CSR initiatives, ensuring quality,
-        transparency, and high impact. To provide opportunities nationwide, we have created this digital platform,
-        enabling carpenters to directly access and apply for EBCO CSR programs or someone else can nominate carpenters
-      </p>
-    </div>
-  </div> <!-- END .page-wrapper -->
-  <!------------------------------------------------------------ POPUP MODAL FORM ------------------------------------------------------------>
-  <div id="modal" class="modal-bg">
-    <div class="modal-box">
-      <span class="close-btn" id="closeModal">&times;</span>
-      <h2>Register for the Scholarship</h2>
-      <div class="register-now-form">
-        <div class="form-group"><input type="text" id="father-name" placeholder="Father's Name" required /></div>
-        <div class="form-group"><input type="text" id="father-mobile-number" placeholder="Father's Contact Number"
-            required /></div>
-        <div class="form-group"><input type="text" id="child-name" placeholder="Child's Name" required /></div>
-        <div class="form-group"><input type="text" id="child-school-name" placeholder="School Name" required /></div>
-        <div class="form-group"><input type="text" id="child-standard" placeholder="Standard" required /></div>
-        <div class="form-group">
-          <input type="text" id="address-city" placeholder="City" required />
+        <div class="cards-wrapper">
+         <div class="card-item">
+            <h3>Skill Development</h3>
+            <p>We help carpenters <strong>upgrade their skills</strong> and gain formal recognition for their
+          existing
+               expertise under Recognition of Prior Learning (RPL), who will get advance skill as well as
+          certificate.</p>
+           </div>
+         <div class="card-item">
+            <h3>Secured Future</h3>
+            <p>To safeguard the lives and livelihoods of carpenters, we facilitate to get <strong>insurance
+                  coverage</strong> (Health and Accident) and would provide wage loss insurance in case of
+          hospitalization.
+              </p>
+           </div>
+         <div class="card-item">
+            <h3>Celebrate Excellence</h3>
+            <p>We support the education of carpenters’ children by offering <strong>scholarships </strong>that
+          encourage
+               learning and reducefinancial burden.</p>
+           </div>
         </div>
-        <div class="form-group">
-          <input type="text" id="address-state" placeholder="State" required />
+        <div class="info-text">
+         <p>We collaborate with credible NGOs for the design and execution of all CSR initiatives, ensuring quality,
+            transparency, and high impact. To provide opportunities nationwide, we have created this digital
+        platform,
+            enabling carpenters to directly access and apply for EBCO CSR programs or someone else can nominate
+        carpenters
+           </p>
         </div>
-        <div class="form-group">
-          <label style="font-size: 0.9rem;">Upload Marksheet</label>
-          <input type="file" id="marksheet" accept="image/*,application/pdf" required />
+     </div>   <div id="modal" class="modal-bg">
+      <div class="modal-box">
+         <span class="close-btn" id="closeModal">&times;</span>
+         <h2>Register for the Scholarship</h2>
+         <div class="register-now-form">
+            <div class="form-group"><input type="text" id="father-name" placeholder="Father's Name" required />
         </div>
-        <div class="form-group">
-          <label style="font-size: 0.9rem;">Upload Admit Card</label>
-          <input type="file" id="admit-card" accept="image/*,application/pdf" />
+            <div class="form-group"><input type="text" id="father-mobile-number"
+            placeholder="Father's Contact Number"       required /></div>
+            <div class="form-group"><input type="text" id="child-name" placeholder="Child's Name" required /></div>
+            <div class="form-group"><input type="text" id="child-school-name" placeholder="School Name" required />
         </div>
-      </div>
-      <button class="submit-btn">Submit</button>
-    </div>
-  </div>
-  <!------------------------------------------------------------ FOOTER ------------------------------------------------------------>
-  <footer>
-    © 2025 CSR Initiative | Powered by <a href="http://ebco.in" style="color:white;">Ebco</a>
-  </footer>
-  <!------------------------------------------------------------ JS SCRIPTS ------------------------------------------------------------>
+            <div class="form-group"><input type="text" id="child-class" placeholder="Class" required /></div>
+            <div class="form-group"><input type="text" id="address-city" placeholder="City" required /></div>
+            <div class="form-group"><input type="text" id="address-state" placeholder="State" required /></div>
+            <div class="form-group"><input type="text" id="address-pincode" placeholder="Pin code" required /></div>
+            <div class="form-group">
+               <label style="font-size: 0.9rem;">Upload Marksheet</label>
+               <input type="file" id="marksheet" accept="image/*,application/pdf" required />
+              </div>
+            <div class="form-group">
+               <label style="font-size: 0.9rem;">Upload Admit Card</label>
+               <input type="file" id="admit-card" accept="image/*,application/pdf" />
+              </div>
+           </div>
+         <button class="submit-btn">Submit</button>
+        </div>
+     </div>
+    <footer>
+      <div class="footer-content">
+         <div class="footer-left">
+            <span>© 2025 CSR Initiative | Powered by <a href="http://ebco.in" style="color:white;">Ebco</a></span>
+           </div>
+         <div class="footer-right">
+            <span>Contact Us: *@ebco.in</span>
+            <span>Toll-Free: 12345678900</span>
+           </div>
+        </div>
+     </footer>
+   
   <script>
     /* -------------------------------- Carousel -------------------------------- */
     let slideIndex = 1;
@@ -474,7 +568,8 @@
     }
   </script>
 
-  <script type="text/javascript"
+  
+  <script type="text/javascript"  
     src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 
