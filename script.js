@@ -24,11 +24,26 @@
     window.addEventListener("scroll", revealCards);
     window.addEventListener("load", revealCards);
     /* -------------------------------- Modal -------------------------------- */
-    const modal = document.getElementById("modal");
+    /* Uncomment below if page content behind the form should scroll */
+    /* const modal = document.getElementById("modal"); 
     document.getElementById("openModal").onclick = () => modal.style.display = "flex";
-    document.getElementById("closeModal").onclick = () => modal.style.display = "none";
-    window.onclick = e => { if (e.target == modal) modal.style.display = "none"; }
+    document.getElementById("closeModal").onclick = () => modal.style.display = "none"; */
+    /* Un-comment below if the form to be closed when user clicks outside of the form space */
+    /* window.onclick = e => { if (e.target == modal) modal.style.display = "none"; } */ 
 
+    /* -------------------------------- Modal (Revised) -------------------------------- */
+    const modal = document.getElementById("modal");
+    // Open Modal Handler
+    document.getElementById("openModal").onclick = () => {
+        modal.style.display = "flex";
+        document.body.classList.add("modal-open"); // Add class to body
+    };
+    // Close Modal Handler
+    document.getElementById("closeModal").onclick = () => {
+        modal.style.display = "none";
+        document.body.classList.remove("modal-open"); // Remove class from body
+    };
+    // Removed window.onclick handler
 
     /* -------------------------------- Google Translate Initialization -------------------------------- */
 
