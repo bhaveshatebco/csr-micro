@@ -24,8 +24,8 @@
         "modal-admit-card":"Upload Admit Card",
         "modal-submit":"Submit",
         "footer_left": "© 2025 CSR Initiative | Powered by Ebco",
-        "footer_contact": "Contact Us: abc@ebco.in",
-        "footer_tollfree": "Toll-Free: 12345678900"
+        "footer_contact": "Contact us : csr@ebco.in",
+        /* "footer_tollfree": "Toll-Free: 12345678900" */
       },
       "hi": {
         "header_title": "सीएसआर पहल",
@@ -51,8 +51,8 @@
         "modal-admit-card":"एडमिट कार्ड अपलोड करें",
         "modal-submit":"जमा करें",
         "footer_left": "© 2025 CSR पहल | Ebco द्वारा संचालित",
-        "footer_contact": "हमसे संपर्क करें: abc@ebco.in",
-        "footer_tollfree": "टोल-फ्री: 12345678900"
+        "footer_contact": "हमसे संपर्क करें : csr@ebco.in",
+        /* "footer_tollfree": "टोल-फ्री: 12345678900" */
       },
       "or": {
         "header_title": "ସିଏସଆର୍ ପଦକ୍ଷେପ",
@@ -78,7 +78,7 @@
         "modal-admit-card":"ଆଡମିଟ୍ କାର୍ଡ ଅପଲୋଡ୍ କରନ୍ତୁ |",
         "modal-submit":"ଦାଖଲ କରନ୍ତୁ",
         "footer_left": "© 2025 CSR ପଦକ୍ଷେପ | Ebco ଦ୍ୱାରା ପରିଚାଳିତ",
-        "footer_contact": "ଆମ ସହିତ ଯୋଗାଯୋଗ କରନ୍ତୁ: abc@ebco.in",
-        "footer_tollfree": "ଟୋଲ-ଫ୍ରି: 12345678900"
+        "footer_contact": "ଆମ ସହିତ ଯୋଗାଯୋଗ କରନ୍ତୁ : csr@ebco.in",
+        /* "footer_tollfree": "ଟୋଲ-ଫ୍ରି: 12345678900" */
       }
     };
