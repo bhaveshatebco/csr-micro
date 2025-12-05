@@ -88,13 +88,10 @@
       <span class="close-btn" id="closeModal">&times;</span>
       <h2 data-key="modal_title">Register for the Scholarship</h2>
       <div class="register-now-form">
-        <div class="form-group"><input data-key="modal-father-name" type="text" id="father-name" placeholder="Father's Name" required />
-        </div>
-        <div class="form-group"><input data-key="modal-father-mobile-number" type="text" id="father-mobile-number" placeholder="Father's Mobile Number"
-            required /></div>
+        <div class="form-group"><input data-key="modal-father-name" type="text" id="father-name" placeholder="Father's Name" required /></div>
+        <div class="form-group"><input data-key="modal-father-mobile-number" type="tel" id="father-mobile-number" placeholder="Father's Mobile Number" required pattern="\d{10,13}" minlength="10" maxlength="13" inputmode="numeric" onkeypress="return isNumberKey(event)" /></div>
         <div class="form-group"><input data-key="modal-child-name" type="text" id="child-name" placeholder="Child's Name" required /></div>
-        <div class="form-group"><input data-key="modal-child-school-name" type="text" id="child-school-name" placeholder="School Name" required />
-        </div> 
+        <div class="form-group"><input data-key="modal-child-school-name" type="text" id="child-school-name" placeholder="School Name" required /></div> 
         <div class="form-group"><input data-key="modal-child-class" type="text" id="child-class" placeholder="Class" required /></div>
         <div class="form-group"><input data-key="modal-address-city" type="text" id="address-city" placeholder="City" required /></div>
         <div class="form-group"><input data-key="modal-address-state" type="text" id="address-state" placeholder="State" required /></div>
@@ -105,7 +102,7 @@
         </div>
         <div class="form-group">
           <label data-key="modal-admit-card" style="font-size: 0.9rem;">Upload Admit Card</label>
-          <input type="file" id="admit-card" accept="image/*,application/pdf" />
+          <input type="file" id="admit-card" accept="image/*,application/pdf" required />
         </div>
       </div>
       <button data-key="modal-submit" class="submit-btn">Submit</button>
@@ -117,8 +114,8 @@
         <span data-key="footer_left">© 2025 CSR Initiative | Powered by <a href="http://ebco.in" style="color:white;">Ebco</a></span>
       </div>
       <div class="footer-right">
-        <span data-key="footer_contact">Contact Us: abc@ebco.in</span>
-        <span data-key="footer_tollfree">Toll-Free: 12345678900</span>
+        <span data-key="footer_contact">Contact us : csr@ebco.in</span> 
+        <!-- <span data-key="footer_tollfree">Toll-Free: 12345678900</span> -->
       </div>
     </div>
   </footer>
