@@ -178,7 +178,7 @@
         }
 
         .info-text p {
-            margin: 3rem 0;
+            margin: 2rem 0;
             font-size: 1.1rem;
         }
 
@@ -329,7 +329,7 @@
             }
 
             .info-text p {
-                margin: 2rem 0;
+                margin: 1rem 0;
             }
 
             .footer-content {
@@ -449,7 +449,7 @@
             <a href="http://ebco.in" target="_blank">
                 <img src="https://dashboard.ebco.in/wp-content/uploads/2025/11/ebco-logo.png" class="ebco-logo" />
             </a>
-            <div data-key="header_title" style="font-size: 1.8rem; font-weight: bold;">CSR Initiative</div>
+            <div data-key="header_title" style="font-size: 1.8rem; font-weight: bold;">CSR Initiatives</div>
             <div style="display: flex; align-items: center; gap: 15px;">
                 <select id="language-selector" class="goog-te-combo">
                     <option value="en">English</option>
@@ -476,12 +476,9 @@
             <a class="next" onclick="plusSlides(1)">&#10095;</a>
         </div>
         <div data-key="info_para1" class="info-text">
-            <p>EBCO is committed to improving the social and economic well-being of the community particularly
-                carpenters and
-                their families across India through its CSR initiatives. Our programs focus on skill development,
-                financial
-                security, and educational support, ensuring a brighter and more stable future for the carpenter
-                community.</p>
+            <p>At EBCO, our commitment goes beyond hardware. We care deeply about improving the lives and financial stability of the carpenters and their families across India. Through our dedicated social programs (CSR initiatives), we act as a true partner, helping them find stability, success, and a better future. Our main goal is to meet the basic needs of these families and make sure our work leads to strong, lasting improvements in their community.</p>
+            <p>A key focus of our work is making sure the carpentry skill stays strong in the future. We do this with hands-on Skill Development programs. These sessions teach modern furniture making, how to use new tools efficiently, and how to use digital skills to manage clients better. At the same time, we help with financial security. This includes training on managing money, organizing a small business, and knowing how to access credit. We also promote important health and safety tips to protect the carpenters while they work.</p>
+            <p>We believe the best way to create lasting opportunity is through education, which is why we invest heavily in the carpenters' children. We offer important financial aid, including scholarships. This ensures a family's budget won't stop a child from learning and aiming high. Our final goal is to help build a successful community of highly skilled artisans, creating positive changes that benefit every family we support.</p>
         </div>
 
         <div class="cards-wrapper">
@@ -512,14 +509,9 @@
                 </p>
             </div>
         </div>
-        <div class="info-text">
-            <p data-key="info_para2">We collaborate with credible NGOs for the design and execution of all CSR
-                initiatives, ensuring quality,
-                transparency, and high impact. To provide opportunities nationwide, we have created this digital
-                platform,
-                enabling carpenters to directly access and apply for EBCO CSR programs or someone else can nominate
-                carpenters
-            </p>
+        <div class="info-text"  data-key="info_para2">
+            <p>To make sure every program is high quality and fully accountable, we work closely with a trusted network of credible NGOs. These partnerships are key to our success. They let us use local knowledge and proven methods to deliver our programs. This means all our CSR work is well-planned, clear, and has a strong, positive effect across India. This careful approach helps us measure and report real progress to everyone involved.</p>
+            <p>Also, to give fair access and opportunities across the whole country, we have built an easy-to-use digital platform. This technology helps us reach carpenters everywhere, removing limits set by distance. Through this site, carpenters can easily find and sign up for EBCO's CSR programs. Other people, like community leaders or contractors, can also use the platform to nominate deserving individuals. This makes sure our help reaches the people who need it most.</p>
         </div>
     </div>
     <div id="modal" class="modal-bg">
@@ -527,10 +519,10 @@
             <span class="close-btn" id="closeModal">&times;</span>
             <h2 data-key="modal_title">Register for the Scholarship</h2>
             <div class="register-now-form">
-                <div class="form-group"><input data-key="modal-father-name" type="text" id="father-name"
-                        placeholder="Father's Name" required /></div>
-                <div class="form-group"><input data-key="modal-father-mobile-number" type="tel"
-                        id="father-mobile-number" placeholder="Father's Mobile Number" required pattern="\d{10,13}"
+                <div class="form-group"><input data-key="modal-carpenter-name" type="text" id="carpenter-name"
+                        placeholder="Carpenter's Name" required /></div>
+                <div class="form-group"><input data-key="modal-carpenter-mobile-number" type="tel"
+                        id="carpenter-mobile-number" placeholder="Carpenter's Mobile Number" required pattern="\d{10,13}"
                         minlength="10" maxlength="13" inputmode="numeric" onkeypress="return isNumberKey(event)" />
                 </div>
                 <div class="form-group"><input data-key="modal-child-name" type="text" id="child-name"
@@ -652,19 +644,19 @@
         /* -------------------------------- Language Data -------------------------------- */
         const languageData = {
             "en": {
-                "header_title": "CSR Initiative",
+                "header_title": "CSR Initiatives",
                 "btn_register": "Register for <br>Scholarship",
-                "info_para1": "EBCO is committed to improving the social and economic well-being of the community particularly carpenters and their families across India through its CSR initiatives. Our programs focus on skill development, financial security, and educational support, ensuring a brighter and more stable future for the carpenter community.",
+                "info_para1": "<p>At EBCO, our commitment goes beyond hardware. We care deeply about improving the lives and financial stability of the carpenters and their families across India. Through our dedicated social programs (CSR initiatives), we act as a true partner, helping them find stability, success, and a better future. Our main goal is to meet the basic needs of these families and make sure our work leads to strong, lasting improvements in their community.</p><p>A key focus of our work is making sure the carpentry skill stays strong in the future. We do this with hands-on Skill Development programs. These sessions teach modern furniture making, how to use new tools efficiently, and how to use digital skills to manage clients better. At the same time, we help with financial security. This includes training on managing money, organizing a small business, and knowing how to access credit. We also promote important health and safety tips to protect the carpenters while they work.</p><p>We believe the best way to create lasting opportunity is through education, which is why we invest heavily in the carpenters' children. We offer important financial aid, including scholarships. This ensures a family's budget won't stop a child from learning and aiming high. Our final goal is to help build a successful community of highly skilled artisans, creating positive changes that benefit every family we support.</p>",
                 "skill-development-card-title": "Skill Development",
                 "skill-development-card-para": "We help carpenters <strong>upgrade their skills</strong> and gain formal recognition for their existing expertise under Recognition of Prior Learning (RPL), who will get advance skill as well as <strong>certificate</strong>. ",
                 "secured-future-card-title": "Secured Future",
                 "secured-future-card-para": "To safeguard the lives and livelihoods of carpenters, we facilitate to get <strong>insurance coverage</strong> (Health and Accident) and would provide wage loss insurance in case of hospitalization.",
                 "celebrate-excellence-card-title": "Celebrate Excellence",
                 "celebrate-excellence-card-para": "We support the education of carpenters’ children by offering <strong>scholarships</strong> that encourage learning and reduce financial burden.",
-                "info_para2": "We collaborate with credible NGOs for the design and execution of all CSR initiatives, ensuring quality, transparency, and high impact. To provide opportunities nationwide, we have created this digital platform, enabling carpenters to directly access and apply for EBCO CSR programs or someone else can nominate carpenters",
+                "info_para2": "<p>To make sure every program is high quality and fully accountable, we work closely with a trusted network of credible NGOs. These partnerships are key to our success. They let us use local knowledge and proven methods to deliver our programs. This means all our CSR work is well-planned, clear, and has a strong, positive effect across India. This careful approach helps us measure and report real progress to everyone involved.</p><p>Also, to give fair access and opportunities across the whole country, we have built an easy-to-use digital platform. This technology helps us reach carpenters everywhere, removing limits set by distance. Through this site, carpenters can easily find and sign up for EBCO's CSR programs. Other people, like community leaders or contractors, can also use the platform to nominate deserving individuals. This makes sure our help reaches the people who need it most.</p>",
                 "modal_title": "Register for the Scholarship",
-                "modal-father-name": "Father's Name",
-                "modal-father-mobile-number": "Father's Mobile Number",
+                "modal-carpenter-name": "Carpenter's Name",
+                "modal-carpenter-mobile-number": "Carpenter's Mobile Number",
                 "modal-child-name": "Child's Name",
                 "modal-child-school-name": "School Name",
                 "modal-child-class": "Class",
@@ -681,17 +673,17 @@
             "hi": {
                 "header_title": "सीएसआर पहल",
                 "btn_register": "छात्रवृत्ति के लिए <br>पंजीकरण करें",
-                "info_para1": "EBCO भारत भर में बढ़ईयों और उनके परिवारों के सामाजिक और आर्थिक कल्याण में सुधार के लिए प्रतिबद्ध है। हमारे कार्यक्रम कौशल विकास, वित्तीय सुरक्षा और शैक्षिक सहायता पर ध्यान केंद्रित करते हैं, जिससे बढ़ई समुदाय के लिए एक उज्जवल और अधिक स्थिर भविष्य सुनिश्चित होता है।",
+                "info_para1": "<p>EBCO में, हमारी प्रतिबद्धता हार्डवेयर से कहीं आगे जाती है। हम पूरे भारत में बढ़ईयों और उनके परिवारों के जीवन और वित्तीय स्थिरता को बेहतर बनाने के लिए गहराई से चिंतित हैं। अपने समर्पित सामाजिक कार्यक्रमों (सीएसआर पहल) के माध्यम से, हम एक सच्चे साथी की तरह काम करते हैं, उन्हें स्थिरता, सफलता और बेहतर भविष्य पाने में मदद करते हैं। हमारा मुख्य लक्ष्य इन परिवारों की बुनियादी ज़रूरतों को पूरा करना और यह सुनिश्चित करना है कि हमारा काम उनके समुदाय में मज़बूत और स्थायी सुधार लाए।</p><p>हमारे काम का एक प्रमुख केंद्र यह सुनिश्चित करना है कि बढ़ईगीरी कौशल भविष्य में भी मज़बूत बना रहे। हम व्यावहारिक कौशल विकास कार्यक्रमों के माध्यम से ऐसा करते हैं। ये सत्र आधुनिक फ़र्नीचर बनाना, नए औज़ारों का कुशलतापूर्वक उपयोग करना और ग्राहकों को बेहतर ढंग से प्रबंधित करने के लिए डिजिटल कौशल का उपयोग करना सिखाते हैं। साथ ही, हम वित्तीय सुरक्षा में भी मदद करते हैं। इसमें धन प्रबंधन, एक छोटे व्यवसाय को व्यवस्थित करने और ऋण प्राप्त करने का प्रशिक्षण शामिल है। हम बढ़ईयों को काम करते समय उनकी सुरक्षा के लिए महत्वपूर्ण स्वास्थ्य और सुरक्षा सुझावों का भी प्रचार करते हैं।</p><p>हमारा मानना ​​है कि स्थायी अवसर पैदा करने का सबसे अच्छा तरीका शिक्षा है, यही वजह है कि हम बढ़ईयों के बच्चों पर भारी निवेश करते हैं। हम छात्रवृत्ति सहित महत्वपूर्ण वित्तीय सहायता प्रदान करते हैं। इससे यह सुनिश्चित होता है कि परिवार का बजट बच्चे को सीखने और ऊँचे लक्ष्य रखने से न रोके। हमारा अंतिम लक्ष्य उच्च कुशल कारीगरों का एक सफल समुदाय बनाने में मदद करना है, जिससे सकारात्मक बदलाव आए और हमारे द्वारा समर्थित प्रत्येक परिवार को लाभ हो।</p>",
                 "skill-development-card-title": "कौशल विकास",
                 "skill-development-card-para": "हम बढ़ईयों को <strong>अपने कौशल को उन्नत करने </strong>और पूर्व शिक्षा की पहचान (आरपीएल) के तहत उनकी मौजूदा विशेषज्ञता के लिए औपचारिक मान्यता प्राप्त करने में मदद करते हैं, जिन्हें उन्नत कौशल के साथ-साथ <strong>प्रमाणपत्र </strong>भी मिलेगा।",
                 "secured-future-card-title": "सुरक्षित भविष्य",
                 "secured-future-card-para": "बढ़ईयों के जीवन और आजीविका की सुरक्षा के लिए, हम <strong>बीमा कवरेज</strong> (स्वास्थ्य और दुर्घटना) प्राप्त करने में सुविधा प्रदान करते हैं और अस्पताल में भर्ती होने की स्थिति में वेतन हानि बीमा प्रदान करेंगे।",
                 "celebrate-excellence-card-title": "उत्कृष्टता का जश्न",
                 "celebrate-excellence-card-para": "हम बढ़ईयों के बच्चों की शिक्षा को <strong>छात्रवृत्तियाँ</strong> प्रदान करके समर्थन करते हैं जो सीखने को प्रोत्साहित करती हैं और वित्तीय बोझ को कम करती हैं।",
-                "info_para2": "हम सभी सीएसआर पहलों के डिजाइन और निष्पादन के लिए विश्वसनीय गैर-सरकारी संगठनों के साथ सहयोग करते हैं, जो गुणवत्ता, पारदर्शिता और उच्च प्रभाव सुनिश्चित करते हैं। देशव्यापी अवसर प्रदान करने के लिए, हमने यह डिजिटल प्लेटफॉर्म बनाया है, जिससे बढ़ई सीधे Ebco सीएसआर कार्यक्रमों तक पहुंच सकते हैं और आवेदन कर सकते हैं या कोई और बढ़ईयों को नामांकित कर सकता है",
+                "info_para2": "<p>यह सुनिश्चित करने के लिए कि प्रत्येक कार्यक्रम उच्च गुणवत्ता वाला और पूरी तरह से जवाबदेह हो, हम विश्वसनीय संगठनों के एक विश्वसनीय नेटवर्क के साथ मिलकर काम करते हैं। ये साझेदारियाँ हमारी सफलता की कुंजी हैं। ये साझेदारियाँ हमें अपने कार्यक्रमों को क्रियान्वित करने के लिए स्थानीय ज्ञान और सिद्ध तरीकों का उपयोग करने में सक्षम बनाती हैं। इसका अर्थ है कि हमारा सारा सीएसआर कार्य सुनियोजित, स्पष्ट है, और पूरे भारत में इसका एक मज़बूत, सकारात्मक प्रभाव पड़ता है। यह सावधानीपूर्वक दृष्टिकोण हमें वास्तविक प्रगति को मापने और इसमें शामिल सभी लोगों को रिपोर्ट करने में मदद करता है।</p><p>साथ ही, पूरे देश में समान पहुँच और अवसर प्रदान करने के लिए, हमने एक उपयोग में आसान डिजिटल प्लेटफ़ॉर्म बनाया है। यह तकनीक हमें हर जगह बढ़ईयों तक पहुँचने में मदद करती है, जिससे दूरी की सीमाएँ समाप्त हो जाती हैं। इस साइट के माध्यम से, बढ़ई आसानी से ईबीसीओ के सीएसआर कार्यक्रमों को ढूंढ और उनमें शामिल हो सकते हैं। अन्य लोग, जैसे सामुदायिक नेता या ठेकेदार, भी योग्य व्यक्तियों को नामांकित करने के लिए इस प्लेटफ़ॉर्म का उपयोग कर सकते हैं। इससे यह सुनिश्चित होता है कि हमारी मदद उन लोगों तक पहुँचे जिन्हें इसकी सबसे ज़्यादा ज़रूरत है।</p>",
                 "modal_title": "छात्रवृत्ति के लिए पंजीकरण करें",
-                "modal-father-name": "पिता का नाम",
-                "modal-father-mobile-number": "पिता का संपर्क नंबर",
+                "modal-carpenter-name": "बढ़ई का नाम",
+                "modal-carpenter-mobile-number": "बढ़ई का मोबाइल नंबर",
                 "modal-child-name": "बच्चे का नाम",
                 "modal-child-school-name": "स्कूल का नाम",
                 "modal-child-class": "कक्षा",
@@ -708,17 +700,17 @@
             "or": {
                 "header_title": "ସିଏସଆର୍ ପଦକ୍ଷେପ",
                 "btn_register": "ଛାତ୍ରବୃତ୍ତି ପାଇଁ <br>ପଞ୍ଜୀକରଣ କରନ୍ତୁ",
-                "info_para1": "ଇବ୍କୋ ଭାରତର ବଢ଼େଇ ଏବଂ ସେମାନଙ୍କ ପରିବାରର ସାମାଜିକ ଓ ଅର୍ଥନୈତିକ କଲ୍ୟାଣ ପାଇଁ ପ୍ରତିବଦ୍ଧ। ଆମର କାର୍ଯ୍ୟକ୍ରମ କୌଶଳ ବିକାଶ, ଆର୍ଥିକ ସୁରକ୍ଷା ଏବଂ ଶିକ୍ଷାଗତ ସହାୟତା ଉପରେ ଗୁରୁତ୍ୱ ଦିଏ, ଯାହା ବଢ଼େଇ ସମୁଦାୟ ପାଇଁ ଏକ ଉଜ୍ଜ୍ୱଳ ଭବିଷ୍ୟତ ସୁନିଶ୍ଚିତ କରେ।",
+                "info_para1": "<p>EBCO ରେ, ଆମର ପ୍ରତିବଦ୍ଧତା ହାର୍ଡୱେୟାରଠାରୁ ଅଧିକ। ଆମେ ସାରା ଭାରତରେ ବଢ଼େଇ ଏବଂ ସେମାନଙ୍କ ପରିବାରର ଜୀବନ ଏବଂ ଆର୍ଥିକ ସ୍ଥିରତାକୁ ଉନ୍ନତ କରିବା ପାଇଁ ଗଭୀର ଭାବରେ ଯତ୍ନବାନ। ଆମର ଉତ୍ସର୍ଗୀକୃତ ସାମାଜିକ କାର୍ଯ୍ୟକ୍ରମ (CSR ପଦକ୍ଷେପ) ମାଧ୍ୟମରେ, ଆମେ ଏକ ପ୍ରକୃତ ଅଂଶୀଦାର ଭାବରେ କାର୍ଯ୍ୟ କରୁ, ସେମାନଙ୍କୁ ସ୍ଥିରତା, ସଫଳତା ଏବଂ ଏକ ଉତ୍ତମ ଭବିଷ୍ୟତ ଖୋଜିବାରେ ସାହାଯ୍ୟ କରୁ। ଆମର ମୁଖ୍ୟ ଲକ୍ଷ୍ୟ ହେଉଛି ଏହି ପରିବାରଗୁଡ଼ିକର ମୌଳିକ ଆବଶ୍ୟକତା ପୂରଣ କରିବା ଏବଂ ନିଶ୍ଚିତ କରିବା ଯେ ଆମର କାର୍ଯ୍ୟ ସେମାନଙ୍କ ସମ୍ପ୍ରଦାୟରେ ଦୃଢ଼, ସ୍ଥାୟୀ ଉନ୍ନତି ଆଡ଼କୁ ନେଇଯାଏ।</p><p>ଆମର କାର୍ଯ୍ୟର ଏକ ମୁଖ୍ୟ ଲକ୍ଷ୍ୟ ହେଉଛି ଭବିଷ୍ୟତରେ ବଢ଼େଇ କୌଶଳ ଦୃଢ଼ ରହିବ। ଆମେ ଏହା ହାତକୁ ନେଇ ଦକ୍ଷତା ବିକାଶ କାର୍ଯ୍ୟକ୍ରମ ସହିତ କରୁ। ଏହି ଅଧିବେଶନଗୁଡ଼ିକ ଆଧୁନିକ ଫର୍ନିଚର ତିଆରି, ନୂତନ ଉପକରଣଗୁଡ଼ିକୁ କିପରି ଦକ୍ଷତାର ସହିତ ବ୍ୟବହାର କରିବେ ଏବଂ ଗ୍ରାହକମାନଙ୍କୁ ଭଲ ଭାବରେ ପରିଚାଳନା କରିବା ପାଇଁ ଡିଜିଟାଲ୍ କୌଶଳ କିପରି ବ୍ୟବହାର କରିବେ ତାହା ଶିଖାଏ। ସେହି ସମୟରେ, ଆମେ ଆର୍ଥିକ ସୁରକ୍ଷାରେ ସାହାଯ୍ୟ କରୁ। ଏଥିରେ ଟଙ୍କା ପରିଚାଳନା, ଏକ ଛୋଟ ବ୍ୟବସାୟ ସଂଗଠିତ କରିବା ଏବଂ ଋଣ କିପରି ପାଇବେ ଜାଣିବା ଉପରେ ତାଲିମ ଅନ୍ତର୍ଭୁକ୍ତ। ଆମେ ବଢ଼େଇମାନଙ୍କୁ କାମ କରିବା ସମୟରେ ସୁରକ୍ଷା ଦେବା ପାଇଁ ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ ସ୍ୱାସ୍ଥ୍ୟ ଏବଂ ସୁରକ୍ଷା ଟିପ୍ସକୁ ମଧ୍ୟ ପ୍ରୋତ୍ସାହିତ କରୁ।</p><p>ଆମେ ବିଶ୍ୱାସ କରୁ ଯେ ସ୍ଥାୟୀ ସୁଯୋଗ ସୃଷ୍ଟି କରିବାର ସର୍ବୋତ୍ତମ ଉପାୟ ହେଉଛି ଶିକ୍ଷା, ଯାହା କାରଣରୁ ଆମେ ବଢ଼େଇଙ୍କ ପିଲାମାନଙ୍କ ପାଇଁ ପ୍ରଚୁର ପରିମାଣରେ ନିବେଶ କରୁ। ଆମେ ଛାତ୍ରବୃତ୍ତି ସମେତ ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ ଆର୍ଥିକ ସହାୟତା ପ୍ରଦାନ କରୁ। ଏହା ନିଶ୍ଚିତ କରେ ଯେ ପରିବାରର ବଜେଟ୍ ପିଲାକୁ ଶିଖିବା ଏବଂ ଉଚ୍ଚ ଲକ୍ଷ୍ୟ ରଖିବାରୁ ବାଧା ଦେବ ନାହିଁ। ଆମର ଶେଷ ଲକ୍ଷ୍ୟ ହେଉଛି ଉଚ୍ଚ କୁଶଳୀ କାରିଗରମାନଙ୍କର ଏକ ସଫଳ ସମ୍ପ୍ରଦାୟ ଗଠନ କରିବାରେ ସାହାଯ୍ୟ କରିବା, ଯାହା ଦ୍ଵାରା ଆମେ ସମର୍ଥନ କରୁଥିବା ପ୍ରତ୍ୟେକ ପରିବାରକୁ ଲାଭ ପହଞ୍ଚାଇବା ପାଇଁ ସକାରାତ୍ମକ ପରିବର୍ତ୍ତନ ଆଣିବା।</p>",
                 "skill-development-card-title": "କୌଶଳ ବିକାଶ",
                 "skill-development-card-para": "ଆମେ ବଢ଼େଇମାନଙ୍କୁ <strong>ନିଜ କୌଶଳର ଉନ୍ନତି</strong> କରିବା ଏବଂ ପୂର୍ବ ଶିକ୍ଷାର ମାନ୍ୟତା (ଆର୍ପିଏଲ୍) ଅଧୀନରେ ସେମାନଙ୍କ ବିଶେଷଜ୍ଞତା ପାଇଁ ଆନୁଷ୍ଠାନିକ ମାନ୍ୟତା ହାସଲ କରିବାରେ ସାହାଯ୍ୟ କରୁଛୁ, ଯେଉଁମାନେ ଉନ୍ନତ କୌଶଳ ସହିତ ପ୍ରମାଣପତ୍ର ମଧ୍ୟ ପାଇବେ।",
                 "secured-future-card-title": "ସୁରକ୍ଷିତ ଭବିଷ୍ୟତ",
                 "secured-future-card-para": "ବଢ଼େଇମାନଙ୍କର ଜୀବନ ଏବଂ ଜୀବିକା ସୁରକ୍ଷିତ ରଖିବା ପାଇଁ, ଆମେ <strong>ବୀମା କଭରେଜ୍</strong> (ସ୍ୱାସ୍ଥ୍ୟ ଏବଂ ଦୁର୍ଘଟଣା) ପାଇବାରେ ସୁବିଧା ଦେଉଛୁ ଏବଂ ହସ୍ପିଟାଲ୍ରେ ଭର୍ତ୍ତି ହେଲେ ବେତନ କ୍ଷତି ବୀମା ପ୍ରଦାନ କରିବୁ।",
                 "celebrate-excellence-card-title": "ଉତ୍କର୍ଷତା ପାଳନ",
                 "celebrate-excellence-card-para": "ଆମେ ବଢ଼େଇମାନଙ୍କ ପିଲାମାନଙ୍କର ଶିକ୍ଷାକୁ <strong>ଛାତ୍ରବୃତ୍ତି</strong> ପ୍ରଦାନ କରି ସମର୍ଥନ କରୁଛୁ, ଯାହା ଶିକ୍ଷଣକୁ ଉତ୍ସାହିତ କରେ ଏବଂ ଆର୍ଥିକ ବୋଝ ହ୍ରାସ କରେ।",
-                "info_para2": "ଆମେ ସମସ୍ତ ସିଏସଆର୍ ପଦକ୍ଷେପର ଡିଜାଇନ୍ ଏବଂ କାର୍ଯ୍ୟକାରିତା ପାଇଁ ବିଶ୍ୱାସଯୋଗ୍ୟ ଏନ୍ଜିଓ ସହିତ ସହଯୋଗ କରୁଛୁ, ଯାହା ଗୁଣବତ୍ତା, ସ୍ୱଚ୍ଛତା ଏବଂ ଉଚ୍ଚ ପ୍ରଭାବ ସୁନିଶ୍ଚିତ କରେ। ଦେଶବ୍ୟାପୀ ସୁଯୋଗ ପ୍ରଦାନ କରିବା ପାଇଁ, ଆମେ ଏହି ଡିଜିଟାଲ୍ ପ୍ଲାଟଫର୍ମ ତିଆରି କରିଛୁ, ଯାହା ବଢ଼େଇମାନଙ୍କୁ ସିଧାସଳଖ ଇବ୍କୋ ସିଏସଆର୍ କାର୍ଯ୍ୟକ୍ରମଗୁଡ଼ିକୁ ପ୍ରବେଶ କରିବା ଏବଂ ଆବେଦନ କରିବା ପାଇଁ ସକ୍ଷମ କରେ କିମ୍ବା ଅନ୍ୟ କେହି ବଢ଼େଇମାନଙ୍କୁ ନାମାଙ୍କନ କରିପାରିବେ।",
+                "info_para2": "<p>ପ୍ରତ୍ୟେକ କାର୍ଯ୍ୟକ୍ରମ ଉଚ୍ଚମାନର ଏବଂ ସମ୍ପୂର୍ଣ୍ଣ ଦାୟିତ୍ୱବାନ ହେବା ନିଶ୍ଚିତ କରିବା ପାଇଁ, ଆମେ ବିଶ୍ୱସନୀୟ ଏନଜିଓର ଏକ ବିଶ୍ୱସ୍ତ ନେଟୱାର୍କ ସହିତ ଘନିଷ୍ଠ ଭାବରେ କାର୍ଯ୍ୟ କରୁ। ଏହି ସହଭାଗୀତା ଆମର ସଫଳତାର ଚାବିକାଠି। ସେମାନେ ଆମ କାର୍ଯ୍ୟକ୍ରମଗୁଡ଼ିକୁ ପ୍ରଦାନ କରିବା ପାଇଁ ସ୍ଥାନୀୟ ଜ୍ଞାନ ଏବଂ ପ୍ରମାଣିତ ପଦ୍ଧତି ବ୍ୟବହାର କରିବାକୁ ଦିଅନ୍ତି। ଏହାର ଅର୍ଥ ହେଉଛି ଆମର ସମସ୍ତ CSR କାର୍ଯ୍ୟ ସୁଚିନ୍ତିତ, ସ୍ପଷ୍ଟ ଏବଂ ସମଗ୍ର ଭାରତରେ ଏକ ଦୃଢ଼, ସକାରାତ୍ମକ ପ୍ରଭାବ ପକାଇଥାଏ। ଏହି ସତର୍କ ଦୃଷ୍ଟିକୋଣ ଆମକୁ ସମ୍ପୃକ୍ତ ସମସ୍ତଙ୍କୁ ପ୍ରକୃତ ପ୍ରଗତି ମାପିବା ଏବଂ ରିପୋର୍ଟ କରିବାରେ ସାହାଯ୍ୟ କରେ।</p><p>ଏହା ସହିତ, ସମଗ୍ର ଦେଶରେ ନ୍ୟାୟପୂର୍ଣ୍ଣ ପ୍ରବେଶ ଏବଂ ସୁଯୋଗ ପ୍ରଦାନ କରିବା ପାଇଁ, ଆମେ ଏକ ସହଜ-ବ୍ୟବହାର-ଯୋଗ୍ୟ ଡିଜିଟାଲ୍ ପ୍ଲାଟଫର୍ମ ନିର୍ମାଣ କରିଛୁ। ଏହି ପ୍ରଯୁକ୍ତିବିଦ୍ୟା ଆମକୁ ଦୂରତା ଦ୍ୱାରା ନିର୍ଦ୍ଧାରିତ ସୀମାକୁ ହଟାଇ ସବୁଠାରେ କାର୍ପଟଦାରଙ୍କ ପାଖରେ ପହଞ୍ଚିବାରେ ସାହାଯ୍ୟ କରେ। ଏହି ସାଇଟ୍ ମାଧ୍ୟମରେ, କାର୍ପଟଦାରମାନେ EBCOର CSR କାର୍ଯ୍ୟକ୍ରମଗୁଡ଼ିକୁ ସହଜରେ ଖୋଜିପାରିବେ ଏବଂ ସାଇନ୍ ଅପ୍ କରିପାରିବେ। ଅନ୍ୟ ଲୋକମାନେ, ଯେପରିକି ସମ୍ପ୍ରଦାୟ ନେତା କିମ୍ବା ଠିକାଦାର, ଯୋଗ୍ୟ ବ୍ୟକ୍ତିମାନଙ୍କୁ ମନୋନୀତ କରିବା ପାଇଁ ମଧ୍ୟ ପ୍ଲାଟଫର୍ମ ବ୍ୟବହାର କରିପାରିବେ। ଏହା ନିଶ୍ଚିତ କରେ ଯେ ଆମର ସାହାଯ୍ୟ ସବୁଠାରୁ ଅଧିକ ଆବଶ୍ୟକ କରୁଥିବା ଲୋକଙ୍କ ପାଖରେ ପହଞ୍ଚିବ।</p>",
                 "modal_title": "ଛାତ୍ରବୃତ୍ତି ପାଇଁ ପଞ୍ଜୀକରଣ କରନ୍ତୁ",
-                "modal-father-name": "ପିତାଙ୍କ ନାମ",
-                "modal-father-mobile-number": "ପିତାଙ୍କ ଯୋଗାଯୋଗ ନମ୍ବର",
+                "modal-carpenter-name": "କାର୍ପେଟରଙ୍କ ନାମ",
+                "modal-carpenter-mobile-number": "ବଢ଼େଇଙ୍କ ମୋବାଇଲ୍ ନମ୍ବର",
                 "modal-child-name": "ଶିଶୁର ନାମ",
                 "modal-child-school-name": "ବିଦ୍ୟାଳୟର ନାମ",
                 "modal-child-class": "ଶ୍ରେଣୀ",
@@ -737,4 +729,3 @@
 </body>
 
 </html>
-
